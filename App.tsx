@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native';
 import ThemeProvider from './src/theme/ThemeProvider';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNavBar from './src/navigators/MainNavBar';
+import 'react-native-gesture-handler';
 
 const App = () => {
 
