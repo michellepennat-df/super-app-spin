@@ -1,9 +1,8 @@
-import {Image, View} from 'react-native';
+import { Image, View } from 'react-native';
 import Card from '../../components/Card/Card';
 import GridView from '../../components/GridView/GridView';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
-import {styles} from './Benefits.Style';
 
 const columnOne = (
   <View>
@@ -17,10 +16,7 @@ const columnOne = (
 );
 const columnTwo = (
   <View>
-    <Image
-      style={styles.image}
-      source={require('../../assets/images/spin-premia.png')}
-    />
+    <Image source={require('../../assets/images/spin-premia.png')} />
   </View>
 );
 
@@ -38,7 +34,7 @@ cards.push(card2);
 
 export const Benefits = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <GridView data={columns} />
       <GridView data={cards} />
       <Text variant="headline-large">Acumula productos</Text>
