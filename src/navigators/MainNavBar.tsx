@@ -4,7 +4,7 @@ import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
 import { Benefits } from '../screens/benefits/Benefits';
-import { Home } from '../screens/home/Home';
+import { Home } from '../screens/home/Homee';
 
 export type RootNavBarParamList = {
   Home: undefined;
