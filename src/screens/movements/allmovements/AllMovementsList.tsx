@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionList, View } from 'react-native';
-// import { style } from './allmovements.style';
+import { styles } from './AllMovements.Style';
 import ListItem from '../../../components/DataDisplay/ListItem';
 import Text from '../../../components/Text/Text';
 import Spinner from '../../../components/atoms/Spinner/Spinner';
@@ -8,9 +8,8 @@ import useMovements from '../../../hooks/useMovements';
 
 const AllMovementsList = () => {
   const {movements, getMovements, loading, moreData} = useMovements();
-  // style={style.container}
   return (
-    <View>
+    <View style={styles.container}>
       <SectionList
         renderItem={({item}) => (
           <ListItem
