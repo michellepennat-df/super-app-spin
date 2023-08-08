@@ -5,7 +5,7 @@ import type {
   BaseProgressBarProps,
   ConditionalBaseProgressBarProps,
 } from '../types';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../../src/theme/types';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 
 const iconDefault = require('../../../assets/regalo.png');

@@ -15,7 +15,7 @@ import type {
   Event,
 } from 'react-native-tab-view/lib/typescript/src/types';
 import useThemedStyles from '../../hooks/useThemedStyles';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../src/theme/types';
 import useTheme from '../../hooks/useTheme';
 
 function TabBar(

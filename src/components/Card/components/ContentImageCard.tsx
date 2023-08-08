@@ -6,7 +6,7 @@ import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseCardProps } from '../types';
 import Text from '../../../components/Text/Text';
 import Tag from '../../atoms/Tag/index';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../../src/theme/types';
 
 function ContentImageCard(props: BaseCardProps) {
   const themedStyle = useThemedStyles(styles);

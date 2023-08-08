@@ -12,7 +12,7 @@ import Text from '../../Text/Text';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseModalProps } from '../../../components/types';
 import Icon from '../Icon/Icon';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../../src/theme/types';
 const BaseModal = (props: BaseModalProps) => {
   const {
     title,

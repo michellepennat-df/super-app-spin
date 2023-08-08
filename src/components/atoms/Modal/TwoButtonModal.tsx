@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../../src/theme/types';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseButtonProps } from '../../Button/types';
 import type { BaseModalProps } from '../../types';

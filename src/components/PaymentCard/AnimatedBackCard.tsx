@@ -18,7 +18,7 @@ import Barcode from '../Barcode/Barcode';
 import type { BarcodeFormat } from '../types';
 import Text from '../Text/Text';
 import useThemedStyles from '../../hooks/useThemedStyles';
-import type { ThemeContextType } from 'src/theme/types';
+import type { ThemeContextType } from '../../../src/theme/types';
 export interface AnimatedBackCardProps {
   testID?: string;
   header?: HeaderCardProps;
