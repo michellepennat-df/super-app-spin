@@ -13,9 +13,14 @@ const Movements = () => {
     const [index, setIndex] = useState(0);
     const [routes] = useState([
         { key: 'all', title: 'Todos' },
+        { key: 'earned', title: 'Ganados' },
+        { key: 'used', title: 'Usados' },
     ]);
+    //TODO: Views for earned and used
     const renderScene = SceneMap({
         all: AllMovementsList,
+        earned: AllMovementsList,
+        used: AllMovementsList,
     });
 
 
@@ -25,7 +30,8 @@ const Movements = () => {
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
                 onIndexChange={setIndex}
-                renderTabBar={(props) => <TabBar {...props} />}
+                //TODO: Check for a better Styling
+                renderTabBar={(props) => <TabBar {...props} indicatorContainerStyle={{ marginHorizontal: 10 }} indicatorStyle={{ width: 100 }} />}
                 initialLayout={{ width: layout.width }}
             />
         </View>

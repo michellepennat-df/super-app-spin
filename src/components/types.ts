@@ -4,6 +4,7 @@ import type {
   TextStyle,
   ImageStyle,
   ColorValue,
+  ImageRequireSource,
 } from 'react-native';
 import type { BaseButtonProps } from './Button/types';
 import type { IconName } from './atoms/Icon/Icon';
@@ -192,4 +193,12 @@ export interface DefaultNavBarProps {
   chevronIconStyle?: StyleProp<TextStyle>;
   renderBadge?: boolean;
   customPressableAreaStyle?: StyleProp<ViewStyle>;
+}
+
+export interface ListItemProps {
+  itemName: string,
+  supportText: string,
+  infoLabel: string,
+  onPress: () => void,
+  icon:{uri:string} | ImageRequireSource
 }

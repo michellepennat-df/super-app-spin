@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const style = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     }
 })
