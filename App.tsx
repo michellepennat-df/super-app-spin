@@ -1,21 +1,14 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import { SafeAreaView } from 'react-native';
-import ThemeProvider from './src/theme/ThemeProvider';
 import { NavigationContainer } from '@react-navigation/native';
-import MainNavBar from './src/navigators/MainNavBar';
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
+import MainNavBar from './src/navigators/MainNavBar';
+import ThemeProvider from './src/theme/ThemeProvider';
 
 const App = () => {
-
-  const [routes] = React.useState([
-    { key: 'first', title: 'First' },
-    { key: 'second', title: 'Second' },
-  ]);
-
   return (
     <ThemeProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <MainNavBar />
           {/* <NavBar /> */}
@@ -23,8 +16,14 @@ const App = () => {
           {/* <Button text="Hola ironhackers" onPress={() => console.log('spin')} /> */}
         </NavigationContainer>
       </SafeAreaView>
-    </ThemeProvider >
+    </ThemeProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;
