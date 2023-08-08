@@ -1,10 +1,11 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
-import { Benefits } from '../screens/benefits/Benefits';
-import { Home } from '../screens/home/Homee';
+import {Benefits} from '../screens/benefits/Benefits';
+import {Home} from '../screens/home/Home';
+import Movements from '../screens/movements/MovementsTab';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -15,7 +16,8 @@ export type RootNavBarParamList = {
 
 export type RootStackParamList = {
   BenefitsStack: {init: boolean};
-  Detalles: {};
+  Movimientos: undefined;
+  Detalles: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -29,6 +31,7 @@ const BenefitsStack = () => {
         component={Benefits}
         options={{headerShown: false}}
       />
+      <Stack.Screen name="Movimientos" component={Movements} />
       <Stack.Screen name="Detalles" component={Home} />
     </Stack.Navigator>
   );
