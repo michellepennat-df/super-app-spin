@@ -1,4 +1,4 @@
-import { Movements } from "./Movements";
+import { Movement } from "./Movement";
 
 export interface MovementsResponse {
     data: MovementsSection[]
@@ -6,5 +6,5 @@ export interface MovementsResponse {
 
 export interface MovementsSection {
     title: string,
-    data: Movements[]
+    data: Movement[]
 }

@@ -5,6 +5,8 @@ import useTheme from '../../hooks/useTheme';
 import TabBar from '../../components/TabBar/TabBar';
 import { SceneMap, TabView } from 'react-native-tab-view';
 import AllMovementsList from './allmovements/AllMovementsList';
+import EarnedMovements from './earnedmovements/EarnedMovements';
+import UsedMovements from './usedmovements/usedMovements';
 
 const Movements = () => {
     const layout = useWindowDimensions();
@@ -19,8 +21,8 @@ const Movements = () => {
     //TODO: Views for earned and used
     const renderScene = SceneMap({
         all: AllMovementsList,
-        earned: AllMovementsList,
-        used: AllMovementsList,
+        earned: EarnedMovements,
+        used: UsedMovements,
     });
 
     const SCREEN_WIDTH = Dimensions.get('window').width

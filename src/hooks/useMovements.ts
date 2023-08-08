@@ -2,10 +2,9 @@ import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import useFetch from "./useFetch";
 import { MovementsResponse, MovementsSection } from "../models/Movements/MovementsResponse";
-import { Movements } from "../models/Movements/Movements";
 
 
-const useMovements = () => {
+const useMovements = (filter: 'history' | 'earned' | 'used') => {
 
     const controller = new AbortController()
 
@@ -17,16 +16,18 @@ const useMovements = () => {
     const { fetchData } = useFetch<MovementsResponse>()
 
     const getMovements = () => {
-        controller.abort()
         setLoading(true)
+
         setTimeout(() => {
-            fetchData(`history/${page}`).then((response) => {
-                console.log(response)
+            fetchData(`${filter}/${page}`).then((response) => {
+
                 setMovements([...movements, ...response!.data])
                 setPage(page + 1)
-            }).catch((err) => {
-                setMoreData(false)
-            }).finally(() => setLoading(false))
+
+                if (response!.data.length == 0) setMoreData(false)
+
+            }).catch((err) => setMoreData(false))
+                .finally(() => setLoading(false))
         }, 2000)
     }
 

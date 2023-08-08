@@ -1,12 +1,12 @@
 import React from 'react'
-import { View } from 'react-native';
-import { style } from './allmovements.style';
 import useMovements from '../../../hooks/useMovements';
+import { View } from 'react-native';
 import MovementsList from '../movementslist/MovementsList';
+import { style } from './earnedmovements.style';
 
-const AllMovementsList = () => {
-
-    const { movements, getMovements, loading, moreData } = useMovements('history')
+const EarnedMovements = () => {
+    
+    const { movements, getMovements, loading, moreData } = useMovements('earned')
 
     return (
         <View style={style.container}>
@@ -20,4 +20,4 @@ const AllMovementsList = () => {
     );
 }
 
-export default AllMovementsList;
+export default EarnedMovements;
