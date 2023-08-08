@@ -1,14 +1,10 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useNavigation, useRoute} from '@react-navigation/native';
-import {
-  StackNavigationProp,
-  createStackNavigator,
-} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
-import {Benefits} from '../screens/benefits/benefits';
-import {Home} from '../screens/home/home';
+import { Benefits } from '../screens/benefits/Benefits';
+import { Home } from '../screens/home/Home';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -19,20 +15,21 @@ export type RootNavBarParamList = {
 
 export type RootStackParamList = {
   BenefitsStack: {init: boolean};
-  Detail: {};
+  Detalles: {};
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootNavBarParamList>();
 
 const BenefitsStack = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const route = useRoute();
-
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="BenefitsStack" component={Benefits} />
-      <Stack.Screen name="Detail" component={Home} />
+    <Stack.Navigator screenOptions={{headerTitleAlign: 'left'}}>
+      <Stack.Screen
+        name="BenefitsStack"
+        component={Benefits}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="Detalles" component={Home} />
     </Stack.Navigator>
   );
 };
@@ -42,18 +39,27 @@ const MainNavBar = () => {
 
   return (
     <Tab.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{headerTitleAlign: 'left'}}
       tabBar={(props: any) => (
         <CustomNavBar
           {...props}
+          key={1}
           focusedColor={colors.content_primary}
           blurColor={colors.content_tertiary}
         />
       )}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Beneficios" component={Benefits} />
-      <Tab.Screen name="Cartera" component={Home} />
-      <Tab.Screen name="Cuenta" component={Home} />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+      <Tab.Screen name="Beneficios" component={BenefitsStack} />
+      <Tab.Screen
+        name="Cartera"
+        component={Home}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Cuenta"
+        component={Home}
+        options={{headerShown: false}}
+      />
     </Tab.Navigator>
   );
 };
