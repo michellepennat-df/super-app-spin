@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Animated, View, useWindowDimensions } from 'react-native';
+import { Animated, Dimensions, View, useWindowDimensions } from 'react-native';
 import { styles } from './movements.style';
 import useTheme from '../../hooks/useTheme';
 import TabBar from '../../components/TabBar/TabBar';
@@ -23,6 +23,7 @@ const Movements = () => {
         used: AllMovementsList,
     });
 
+    const SCREEN_WIDTH = Dimensions.get('window').width
 
     return (
         <View style={[styles.container, { backgroundColor: colors.surface_primary }]}>
@@ -30,8 +31,7 @@ const Movements = () => {
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
                 onIndexChange={setIndex}
-                //TODO: Check for a better Styling
-                renderTabBar={(props) => <TabBar {...props} indicatorContainerStyle={{ marginHorizontal: 10 }} indicatorStyle={{ width: 100 }} />}
+                renderTabBar={(props) => <TabBar {...props} indicatorStyle={{ width: SCREEN_WIDTH / 3.73 }} indicatorContainerStyle={{left: 12, right: 12, width: 'auto'}} />}
                 initialLayout={{ width: layout.width }}
             />
         </View>

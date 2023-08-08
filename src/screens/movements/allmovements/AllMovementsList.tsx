@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { ActivityIndicator, SectionList, View } from 'react-native';
+import { ActivityIndicator, SectionList, SectionListData, View } from 'react-native';
 import { style } from './allmovements.style';
 import axios, { AxiosResponse } from 'axios';
 import Text from '../../../components/Text/Text';
 import ListItem from '../../../components/DataDisplay/ListItem';
 import useMovements from '../../../hooks/useMovements';
 import Spinner from '../../../components/atoms/Spinner/Spinner';
+import { Movements } from '../../../models/Movements/Movements';
+import { MovementsResponse } from '../../../models/Movements/MovementsResponse';
 
 const AllMovementsList = () => {
 

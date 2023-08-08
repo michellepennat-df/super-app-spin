@@ -55,7 +55,7 @@ const MainNavBar = () => {
       <Tab.Screen name="Beneficios" component={BenefitsStack} />
       <Tab.Screen
         name="Cartera"
-        component={Home}
+        component={Movements}
         options={{headerShown: false}}
       />
       <Tab.Screen

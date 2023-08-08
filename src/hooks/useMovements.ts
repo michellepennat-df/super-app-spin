@@ -1,27 +1,30 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import useFetch from "./useFetch";
+import { MovementsResponse, MovementsSection } from "../models/Movements/MovementsResponse";
+import { Movements } from "../models/Movements/Movements";
 
 
 const useMovements = () => {
 
     const controller = new AbortController()
 
-    const [movements, setMovements] = useState<any>([])
+    const [movements, setMovements] = useState<MovementsSection[]>([])
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
     const [moreData, setMoreData] = useState(true)
 
-    //TODO: Move request to another hook
+    const { fetchData } = useFetch<MovementsResponse>()
+
     const getMovements = () => {
         controller.abort()
         setLoading(true)
         setTimeout(() => {
-            axios.get(`http://localhost:3001/history/${page}`).then((response: AxiosResponse) => {
-                console.log(response.data.data)
-                setMovements([...movements, ...response.data.data])
+            fetchData(`history/${page}`).then((response) => {
+                console.log(response)
+                setMovements([...movements, ...response!.data])
                 setPage(page + 1)
             }).catch((err) => {
-                console.log(err)
                 setMoreData(false)
             }).finally(() => setLoading(false))
         }, 2000)
