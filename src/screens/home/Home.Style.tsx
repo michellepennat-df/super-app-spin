@@ -1,12 +1,16 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
-    width: 120,
-    height: 120,
+    marginBottom: 24,
+    width: 40,
+    height: 40,
   },
 });
