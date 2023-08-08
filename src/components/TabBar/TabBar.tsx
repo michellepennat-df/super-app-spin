@@ -30,34 +30,34 @@ function TabBar(
       pressOpacity?: number | undefined;
       getLabelText?: ((scene: Scene<Route>) => string | undefined) | undefined;
       getAccessible?:
-        | ((scene: Scene<Route>) => boolean | undefined)
-        | undefined;
+      | ((scene: Scene<Route>) => boolean | undefined)
+      | undefined;
       getAccessibilityLabel?:
-        | ((scene: Scene<Route>) => string | undefined)
-        | undefined;
+      | ((scene: Scene<Route>) => string | undefined)
+      | undefined;
       getTestID?: ((scene: Scene<Route>) => string | undefined) | undefined;
       renderLabel?:
-        | ((
-            scene: Scene<Route> & { focused: boolean; color: string },
-          ) => React.ReactNode)
-        | undefined;
+      | ((
+        scene: Scene<Route> & { focused: boolean; color: string },
+      ) => React.ReactNode)
+      | undefined;
       renderIcon?:
-        | ((
-            scene: Scene<Route> & { focused: boolean; color: string },
-          ) => React.ReactNode)
-        | undefined;
+      | ((
+        scene: Scene<Route> & { focused: boolean; color: string },
+      ) => React.ReactNode)
+      | undefined;
       renderBadge?: ((scene: Scene<Route>) => React.ReactNode) | undefined;
       renderIndicator?:
-        | ((props: TabBarIndicatorProps<Route>) => React.ReactNode)
-        | undefined;
+      | ((props: TabBarIndicatorProps<Route>) => React.ReactNode)
+      | undefined;
       renderTabBarItem?:
-        | ((
-            props: TabBarItemProps<Route> & { key: string },
-          ) => React.ReactElement<
-            any,
-            string | React.JSXElementConstructor<any>
-          >)
-        | undefined;
+      | ((
+        props: TabBarItemProps<Route> & { key: string },
+      ) => React.ReactElement<
+        any,
+        string | React.JSXElementConstructor<any>
+      >)
+      | undefined;
       onTabPress?: ((scene: Scene<Route> & Event) => void) | undefined;
       onTabLongPress?: ((scene: Scene<Route>) => void) | undefined;
       tabStyle?: StyleProp<ViewStyle>;
@@ -72,13 +72,13 @@ function TabBar(
   const themeStyle = useThemedStyles(styles);
   const theme = useTheme();
   const routesLength = props?.navigationState?.routes?.length;
-  const minRoutesToEnableScroll = 2;
+  const minRoutesToEnableScroll = 3;
 
   return (
     <RNTabBar
       {...props}
       pressColor={theme.colors.surface_primary}
-      indicatorStyle={themeStyle.indicator}
+      indicatorStyle={[themeStyle.indicator, props.indicatorStyle]}
       style={themeStyle.tabBar}
       renderLabel={({ route, focused }) => (
         <Text
