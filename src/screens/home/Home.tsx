@@ -25,3 +25,11 @@ export const Home = () => {
 //     height: 120,
 //   },
 // });
+
+// import { StyleSheet } from "react-native";
+
+// export const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//     }
+// })
