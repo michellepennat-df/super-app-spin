@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Animated, View, useWindowDimensions } from 'react-native';
-// import { styles } from './movements.style';
+import { styles } from './Movement.Style';
 import useTheme from '../../hooks/useTheme';
 import TabBar from '../../components/TabBar/TabBar';
 import { SceneMap, TabView } from 'react-native-tab-view';
@@ -25,7 +25,7 @@ const Movements = () => {
 
 
     return (
-        <View >
+        <View style={[styles.container, { backgroundColor: colors.surface_primary }]}>
             <TabView
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
@@ -39,5 +39,3 @@ const Movements = () => {
 }
 
 export default Movements;
-
-// style={[styles.container, { backgroundColor: colors.surface_primary }]}
