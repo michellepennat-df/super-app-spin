@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { SectionList } from 'react-native';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
 import { MovementsListProps } from './types';
@@ -8,6 +8,7 @@ import Spinner from '../../../components/atoms/Spinner/Spinner';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../navigators/MainNavBar';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Movement } from '../../../models/Movements/Movement';
 
 type Props = StackNavigationProp<RootStackParamList, 'Movimientos'>
 
@@ -15,12 +16,18 @@ const MovementsList = ({ movements, getData, loading, moreData }: MovementsListP
 
     const navigation = useNavigation<Props>()
 
+    const capitalizedDate = useCallback((item: Movement) => {
+        const localFormattedDate = new Date(item.date).toLocaleDateString('es-MX', { weekday: 'long', day: '2-digit' })
+        return localFormattedDate.charAt(0).toUpperCase() + localFormattedDate.slice(1)
+    }, [])
+
     return (
         <SectionList
             renderItem={({ item }) =>
                 <ListItem
                     itemName={item.entity}
-                    supportText={item.date}
+
+                    supportText={capitalizedDate(item)}
                     infoLabel={`${item.operation == 'earned' ? '+ ' : '- '}${item.points}`}
                     icon={require('../../../assets/partner_logo.png')}
                     onPress={() => navigation.navigate('Detalles', { movement: item })}

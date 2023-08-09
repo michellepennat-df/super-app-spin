@@ -5,16 +5,18 @@ export const styles = StyleSheet.create({
         height: 64,
         alignItems: 'center',
         padding: 8,
+        paddingStart: 16,
         flexDirection: 'row',
     },
     backButtonContainer: {
-        height: 48,
-        width: 48,
-        justifyContent: 'center',
-        alignItems: "center"
-    },
-    backArrowIcon:{
         height: 24,
-         width: 24 
+        paddingEnd: 10,
+        paddingStart:8,
+        justifyContent: 'center',
+        alignItems: "center",
+    },
+    backArrowIcon: {
+        height: 24,
+        width: 24
     }
 })

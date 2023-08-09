@@ -58,7 +58,7 @@ const BenefitsStack = () => {
         options={{ title: 'Beneficios'}}
       />
       <Stack.Screen name="Movimientos" component={Movements} />
-      <Stack.Screen name="Detalles" component={MovementDetail} />
+      <Stack.Screen name="Detalles" component={MovementDetail} options={{ title: 'Detalle de movimiento'}} />
     </Stack.Navigator>
   );
 };

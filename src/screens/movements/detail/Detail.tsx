@@ -21,7 +21,7 @@ const MovementDetail = ({ navigation, route }: Props) => {
     }, [])
 
     return (
-        <ScrollView style={[style.container, { backgroundColor: colors.surface_primary }]} contentContainerStyle={{ paddingTop: 50, paddingBottom: 16 }} >
+        <ScrollView style={[style.container, { backgroundColor: colors.surface_primary }]} contentContainerStyle={{ paddingTop: 40, paddingBottom: 16 }} >
             <View style={{ padding: 16 }}>
                 <Card style={{ height: 180, width: '100%' }} contentStyle={{ alignItems: "center" }}>
                     <Card style={style.imageContainer} contentStyle={{ alignItems: "center", justifyContent: "center" }}>
