@@ -50,6 +50,7 @@ const CustomNavBar = ({ state, descriptors, navigation, focusedColor, blurColor 
 
                 return (
                     <TouchableOpacity
+                        key={label}
                         accessibilityRole="button"
                         accessibilityState={isFocused ? { selected: true } : {}}
                         accessibilityLabel={options.tabBarAccessibilityLabel}
