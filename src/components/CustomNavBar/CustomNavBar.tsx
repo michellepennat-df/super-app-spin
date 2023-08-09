@@ -3,6 +3,7 @@ import React from 'react'
 import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Text from '../Text/Text';
 import Icon from '../atoms/Icon/Icon';
+import useTheme from '../../hooks/useTheme';
 
 interface CustomNavbarProps extends BottomTabBarProps {
     focusedColor: string,
@@ -11,8 +12,10 @@ interface CustomNavbarProps extends BottomTabBarProps {
 
 const CustomNavBar = ({ state, descriptors, navigation, focusedColor, blurColor }: CustomNavbarProps) => {
 
+    const {colors} = useTheme()
+
     return (
-        <View style={styles.tabBarContainer}>
+        <View style={[styles.tabBarContainer,{backgroundColor:colors.surface_primary}]}>
             {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
                 const label =
@@ -46,7 +49,7 @@ const CustomNavBar = ({ state, descriptors, navigation, focusedColor, blurColor 
                 const icon = label == 'Home' ? (isFocused ? require('../../assets/icon_nav_home_filled.png') : require('../../assets/icon_nav_home_outline.png')) :
                     label == 'Beneficios' ? (isFocused ? require('../../assets/icon_nav_benefits_filled.png') : require('../../assets/icon_nav_benefits_outline.png')) :
                         label == 'Cartera' ? require('../../assets/icon_nav_wallet.png') :
-                            require('../../assets/icon_nav_profile.png')
+                            (isFocused ? require('../../assets/icon_nav_profile_filled.png') : require('../../assets/icon_nav_profile_outline.png'))
 
                 return (
                     <TouchableOpacity
@@ -79,7 +82,14 @@ const styles = StyleSheet.create({
         height: 76,
         width: '100%',
         paddingHorizontal: 16,
-        paddingVertical: 12
+        paddingVertical: 12,
+        elevation:8,
+        shadowOffset:{
+            width:1,
+            height:-1
+        },
+        shadowOpacity:.1,
+        shadowColor:'black'
     },
     tabItemContainer: {
         flex: 1,
