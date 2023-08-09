@@ -5,10 +5,14 @@ import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
 import { version } from '../../../package.json'
+import Modal from '../../components/atoms/Modal';
+import TwoButtonModal from '../../components/atoms/Modal/TwoButtonModal';
+import useModal from '../../hooks/useModal';
 
 const Account = () => {
 
     const { colors } = useTheme()
+    const {showModal, toggleModal} = useModal()
 
     return (
         <View style={[style.container, { backgroundColor: colors.surface_primary }]}>
@@ -28,7 +32,9 @@ const Account = () => {
                 </View>
                 <View style={[style.actionContainer, { borderBottomColor: colors.stroke_secondary }]}>
                     <Text variant='headline-small'>Otras acciones</Text>
-                    <Pressable style={style.closeSesionButton}>
+                    <Pressable 
+                    onPress={toggleModal}
+                    style={style.closeSesionButton}>
                         <View style={{ paddingHorizontal: 8 }}>
                             <Image
                                 style={style.logoutIcon}
@@ -40,6 +46,21 @@ const Account = () => {
                 </View>
             </View>
             <Text variant='label-small' style={[style.versionText, { color: colors.inverse_content_secondary, }]}>Versión {version}</Text>
+            <TwoButtonModal
+            visible={showModal}
+            onCallbackClose={() => toggleModal()}
+            title='¿Quieres cerrar tu sesión?'
+            subtitle='Recuerda que puedes volver a entrar a la app cuando quieras'
+            showCloseBtn
+            firstButtonProps={{
+                text:'Sí, cerrar sesión',
+                onPress: () => toggleModal()
+            }}
+            secondButtonProps={{
+                text:'En otro momento',
+                onPress: () => toggleModal()
+            }}
+            />
         </View>
     );
 }

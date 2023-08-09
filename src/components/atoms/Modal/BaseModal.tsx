@@ -7,12 +7,14 @@ import {
   KeyboardAvoidingView,
   View,
   Platform,
+  Image,
 } from 'react-native';
 import Text from '../../Text/Text';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseModalProps } from '../../../components/types';
 import Icon from '../Icon/Icon';
 import type { ThemeContextType } from '../../../../src/theme/types';
+import useTheme from '../../../hooks/useTheme';
 const BaseModal = (props: BaseModalProps) => {
   const {
     title,
@@ -30,6 +32,8 @@ const BaseModal = (props: BaseModalProps) => {
   } = props;
   const [visibleFlag, setVisibleFlag] = useState(visible);
   const themedStyle = useThemedStyles(styles);
+
+  const {colors} = useTheme()
 
   useEffect(() => {
     setVisibleFlag(visible);
@@ -88,11 +92,11 @@ const BaseModal = (props: BaseModalProps) => {
                     onPress={onCloseHandler}
                     style={themedStyle.iconCloseTouchable}
                   >
-                    <Icon
-                      name="icon-close"
+                    <Image
+                      resizeMode='contain'
+                      source={require('../../../assets/Close.png')}
                       testID={`${testID}-close-button`}
-                      // eslint-disable-next-line react-native/no-inline-styles
-                      iconTypographyStyle={{ fontSize: 20 }}
+                      style={{ height: 16, width: 16, tintColor: colors.content_tertiary }}
                     />
                   </TouchableOpacity>
                 </View>
