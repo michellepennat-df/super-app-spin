@@ -13,7 +13,7 @@ import useTheme from '../hooks/useTheme';
 import {Movement} from '../models/Movements/Movement';
 import {Benefits} from '../screens/benefits/Benefits';
 import {Home} from '../screens/home/Home';
-import Movements from '../screens/movements/MovementsTab';
+import Movements from '../screens/movements/Movements';
 
 export type RootNavBarParamList = {
   Home: undefined;

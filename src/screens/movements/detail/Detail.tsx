@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, ScrollView, View } from 'react-native';
-import { style } from './movementdetail.style';
+import { style } from './Detail.Style';
 import useTheme from '../../../hooks/useTheme';
 import Text from '../../../components/Text/Text';
 import { StackScreenProps } from '@react-navigation/stack';

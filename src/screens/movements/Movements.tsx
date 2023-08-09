@@ -3,10 +3,10 @@ import { Dimensions, View, useWindowDimensions } from 'react-native';
 import { SceneMap, TabView } from 'react-native-tab-view';
 import TabBar from '../../components/TabBar/TabBar';
 import useTheme from '../../hooks/useTheme';
-import AllMovementsList from './allmovements/AllMovementsList';
-import EarnedMovements from './earnedmovements/EarnedMovements';
+import AllMovementsList from './all/All';
+import EarnedMovements from './earned/Earned';
 import { styles } from './Movement.Style';
-import UsedMovements from './usedmovements/UsedMovements';
+import UsedMovements from './used/Used';
 
 const Movements = () => {
   const layout = useWindowDimensions();

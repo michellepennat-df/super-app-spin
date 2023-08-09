@@ -4,7 +4,7 @@ import ListItem from '../../../components/DataDisplay/ListItem';
 import Text from '../../../components/Text/Text';
 import Spinner from '../../../components/atoms/Spinner/Spinner';
 import useMovements from '../../../hooks/useMovements';
-import { styles } from './AllMovements.Style';
+import { styles } from './All.Style';
 
 const AllMovementsList = () => {
   const {movements, getMovements, loading, moreData} = useMovements();
