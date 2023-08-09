@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "json-server": "json-server --watch ./db/db.json --port 3001"
+    "json-server": "json-server --watch -H 0.0.0.0 ./db/db.json --port 3001"
   },
   "dependencies": {
     "@kichiyaki/react-native-barcode-generator": "^0.6.7",

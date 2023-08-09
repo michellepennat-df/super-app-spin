@@ -1,14 +1,13 @@
 import React from 'react';
-import { SectionList, View } from 'react-native';
-import ListItem from '../../../components/DataDisplay/ListItem';
-import Text from '../../../components/Text/Text';
-import Spinner from '../../../components/atoms/Spinner/Spinner';
+import { View } from 'react-native';
 import useMovements from '../../../hooks/useMovements';
-import { styles } from './All.Style';
 import MovementsList from '../list/List';
+import { styles } from './All.Style';
 
 const AllMovementsList = () => {
+
   const { movements, getMovements, loading, moreData } = useMovements('history');
+
   return (
     <View style={styles.container}>
       <MovementsList

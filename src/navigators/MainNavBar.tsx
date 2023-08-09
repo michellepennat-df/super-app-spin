@@ -8,7 +8,7 @@ import {
 import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
-import { Movement } from '../models/Movements/Movement';
+import { Movement } from '../models/movement/Movement';
 import { Benefits } from '../screens/benefits/Benefits';
 import { Home } from '../screens/home/Home';
 import Movements from '../screens/movements/Movements';
