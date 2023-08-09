@@ -15,6 +15,7 @@ import Movements from '../screens/movements/Movements';
 import Account from '../screens/account/Account';
 import MovementDetail from '../screens/movements/detail/Detail';
 import AppHeader from '../components/AppHeader/AppHeader';
+import { Wallet } from '../screens/wallet/Wallet';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -54,11 +55,10 @@ const MainNavBar = () => {
         options={{ headerShown: false }} />
       <Tab.Screen
         name="Beneficios"
-        component={Benefits}
-        options={{ headerShown: true }} />
+        component={Benefits} />
       <Tab.Screen
         name="Cartera"
-        component={Home}
+        component={Wallet}
         options={{ headerShown: false }}
       />
       <Tab.Screen
