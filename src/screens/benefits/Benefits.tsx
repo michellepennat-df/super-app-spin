@@ -1,9 +1,14 @@
-import {Image, ScrollView, View} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Image, ScrollView, View } from 'react-native';
 import StackedCardGrid from '../../components/GridView/StackedCardGrid';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
 import useTheme from '../../hooks/useTheme';
-import {styles} from './Benefits.Style';
+import { RootStackParamList } from '../../navigators/MainNavBar';
+import { styles } from './Benefits.Style';
+
+const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
 const data = [
   {
@@ -11,7 +16,9 @@ const data = [
     icon: (
       <Image source={require('../../assets/images/history.png')} width={124} />
     ),
-    onPress: () => {},
+    onPress: () => {
+      navigation.navigate('Movimientos');
+    },
   },
   {
     title: 'Cambia tus puntos',
@@ -69,10 +76,22 @@ export const Benefits = () => {
         Muy pronto podrás acumular compras y llevarte productos de regalo
       </Text>
       <Image source={require('../../assets/images/rewards.png')} alt="Sellos" />
-      <ScrollView horizontal >
-        <Image style={styles.item} source={require('../../assets/images/card.jpg')} alt="Card" />
-        <Image style={styles.item} source={require('../../assets/images/card.jpg')} alt="Card" />
-        <Image style={styles.item} source={require('../../assets/images/card.jpg')} alt="Card" />
+      <ScrollView horizontal>
+        <Image
+          style={styles.item}
+          source={require('../../assets/images/card.jpg')}
+          alt="Card"
+        />
+        <Image
+          style={styles.item}
+          source={require('../../assets/images/card.jpg')}
+          alt="Card"
+        />
+        <Image
+          style={styles.item}
+          source={require('../../assets/images/card.jpg')}
+          alt="Card"
+        />
       </ScrollView>
     </ScrollView>
   );

@@ -1,10 +1,6 @@
 import { Image, View } from 'react-native';
 import Text from '../../components/Text/Text';
-<<<<<<< HEAD
-import { styles } from './home.style';
-=======
 import { styles } from './Home.Style';
->>>>>>> origin/feature/develop/s1/benefits
 
 export const Home = () => {
   return (
