@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import BaseCard from './BaseCard';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import type { ThemeContextType } from '../../../../src/theme/types';
+import Text from '../../../components/Text/Text';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import type { BaseCardProps, ContentStackedProps } from '../types';
-import Text from '../../../components/Text/Text';
-import type { ThemeContextType } from '../../../../src/theme/types';
+import BaseCard from './BaseCard';
 
 interface TextContentProps {
   title?: string;
@@ -15,14 +15,14 @@ interface ImageContentProps {
   image?: JSX.Element;
 }
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
-const ImageContent = ({ image }: ImageContentProps) => {
+const ImageContent = ({image}: ImageContentProps) => {
   const themedStyle = useThemedStyles(styles);
   return <View style={themedStyle.imageContent}>{image}</View>;
 };
 
-const TextContent = ({ title, titleSize = 'default' }: TextContentProps) => {
+const TextContent = ({title, titleSize = 'default'}: TextContentProps) => {
   const themedStyle = useThemedStyles(styles);
   const cardTextNumberOfLines = 2;
   const getTextVariant = (size: 'small' | 'default' | 'extra-small') => {
@@ -40,8 +40,7 @@ const TextContent = ({ title, titleSize = 'default' }: TextContentProps) => {
     <Text
       variant={getTextVariant(titleSize)}
       style={themedStyle.textContent}
-      numberOfLines={cardTextNumberOfLines}
-    >
+      numberOfLines={cardTextNumberOfLines}>
       {title}
     </Text>
   );
@@ -66,8 +65,7 @@ function ContentStackedCard(props: ContentStackedProps & BaseCardProps) {
       {...props}
       style={themedStyle.card}
       elevationIOS={themedStyle.elevation}
-      onPress={props.onPress}
-    >
+      onPress={props.onPress}>
       <View>
         <ImageContent image={props.icon} />
         <TextContent
@@ -82,13 +80,12 @@ function ContentStackedCard(props: ContentStackedProps & BaseCardProps) {
 const styles = (theme: ThemeContextType) =>
   StyleSheet.create({
     card: {
-      height: 130,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 12,
       flexDirection: 'column',
       paddingHorizontal: width < 340 ? 5 : 12,
-      paddingVertical: 12,
+      paddingTop: 45,
       shadowColor: `${theme.colors.content_primary}80`,
       shadowOffset: {
         width: 0,
@@ -104,10 +101,11 @@ const styles = (theme: ThemeContextType) =>
       justifyContent: 'center',
       alignItems: 'center',
     },
-    elevation: { width: 0, height: 2 },
+    elevation: {width: 0, height: 2},
     textContent: {
-      marginTop: 16,
+      marginTop: 28,
       textAlign: 'center',
+      padding: 12,
     },
   });
 

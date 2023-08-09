@@ -33,7 +33,7 @@ function StackedCardGrid({
   numberOfColumns = 3,
   titlesSize,
 }: StackedCardGridProps) {
-  const { width } = useWindowDimensions();
+  const {width} = useWindowDimensions();
   const twoColumnsCardWidth = width / 2 - 20;
   const threeColumnsCardWidth = width / 3 - 10;
 
@@ -46,22 +46,20 @@ function StackedCardGrid({
   return (
     <View
       style={[containerStyle, styles.container]}
-      testID={idForTestContainer}
-    >
+      testID={idForTestContainer}>
       {data.map((card, i) => (
         <View
           key={i}
           style={[
             itemsStyle,
-            { ...styles.cardContainer },
+            {...styles.cardContainer},
             {
               width:
                 numberOfColumns === 2
                   ? twoColumnsCardWidth
                   : threeColumnsCardWidth,
             },
-          ]}
-        >
+          ]}>
           <Card
             variant="content-stacked"
             title={card.title}
