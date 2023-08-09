@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import useFetch from "./useFetch";
-import { MovementsResponse, MovementsSection } from "../models/Movements/MovementsResponse";
+import { MovementsResponse, MovementsSection } from "../models/movement/MovementResponse";
 
 
 const useMovements = (filter?: 'history' | 'earned' | 'used') => {

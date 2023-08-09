@@ -1,4 +1,4 @@
-import { MovementsSection } from "../../../models/Movements/MovementsResponse";
+import { MovementsSection } from "../../../models/movement/MovementResponse";
 
 export interface MovementsListProps {
     movements: MovementsSection[],
