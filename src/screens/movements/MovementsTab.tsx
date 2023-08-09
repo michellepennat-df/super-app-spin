@@ -6,7 +6,7 @@ import TabBar from '../../components/TabBar/TabBar';
 import { SceneMap, TabView } from 'react-native-tab-view';
 import AllMovementsList from './allmovements/AllMovementsList';
 import EarnedMovements from './earnedmovements/EarnedMovements';
-import UsedMovements from './usedmovements/usedMovements';
+import UsedMovements from './usedmovements/UsedMovements';
 
 const Movements = () => {
     const layout = useWindowDimensions();

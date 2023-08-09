@@ -7,6 +7,7 @@ import {Benefits} from '../screens/benefits/Benefits';
 import {Home} from '../screens/home/Home';
 import Movements from '../screens/movements/MovementsTab';
 import { Movement } from '../models/Movements/Movement';
+import Account from '../screens/account/Account';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -61,7 +62,7 @@ const MainNavBar = () => {
       />
       <Tab.Screen
         name="Cuenta"
-        component={Home}
+        component={Account}
         options={{headerShown: false}}
       />
     </Tab.Navigator>
