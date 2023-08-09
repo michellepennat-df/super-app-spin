@@ -1,10 +1,13 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
-import {Benefits} from '../screens/benefits/Benefits';
-import {Home} from '../screens/home/Home';
+import { Benefits } from '../screens/benefits/Benefits';
+import { Home } from '../screens/home/Home';
 import Movements from '../screens/movements/MovementsTab';
 import { Movement } from '../models/Movements/Movement';
 
@@ -44,10 +47,9 @@ const MainNavBar = () => {
   return (
     <Tab.Navigator
       screenOptions={{headerTitleAlign: 'left'}}
-      tabBar={(props: any) => (
+      tabBar={(props: BottomTabBarProps) => (
         <CustomNavBar
           {...props}
-          key={1}
           focusedColor={colors.content_primary}
           blurColor={colors.content_tertiary}
         />
