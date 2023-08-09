@@ -25,7 +25,9 @@ const data = [
     icon: (
       <Image source={require('../../assets/images/points.png')} width={124} />
     ),
-    onPress: () => {},
+    onPress: () => {
+      navigation.navigate('Puntos');
+    },
   },
 ];
 
