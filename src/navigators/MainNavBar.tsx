@@ -16,6 +16,7 @@ import Account from '../screens/account/Account';
 import MovementDetail from '../screens/movements/detail/Detail';
 import AppHeader from '../components/AppHeader/AppHeader';
 import { Wallet } from '../screens/wallet/Wallet';
+import { Points } from '../screens/points/Points';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -28,6 +29,7 @@ export type RootStackParamList = {
   MainNavBar: { init: boolean };
   Movimientos: undefined;
   Detalles: { movement: Movement };
+  Puntos: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -83,6 +85,7 @@ const MainStack = () => {
       />
       <Stack.Screen name="Movimientos" component={Movements} />
       <Stack.Screen name="Detalles" component={MovementDetail} options={{ title: 'Detalle de movimiento' }} />
+      <Stack.Screen name="Puntos" component={Points} options={{ title: 'Detalle de movimiento' }} />
     </Stack.Navigator>
   );
 };
