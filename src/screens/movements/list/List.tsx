@@ -8,7 +8,7 @@ import Spinner from '../../../components/atoms/Spinner/Spinner';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../navigators/MainNavBar';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { Movement } from '../../../models/Movements/Movement';
+import { Movement } from '../../../models/movement/Movement';
 
 type Props = StackNavigationProp<RootStackParamList, 'Movimientos'>
 
