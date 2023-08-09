@@ -4,10 +4,10 @@ import { style } from './account.style';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
-import { version } from '../../../package.json'
-import Modal from '../../components/atoms/Modal';
 import TwoButtonModal from '../../components/atoms/Modal/TwoButtonModal';
 import useModal from '../../hooks/useModal';
+import DeviceInfo from 'react-native-device-info';
+
 
 const Account = () => {
 
@@ -45,7 +45,7 @@ const Account = () => {
                     </Pressable>
                 </View>
             </View>
-            <Text variant='label-small' style={[style.versionText, { color: colors.inverse_content_secondary, }]}>Versión {version}</Text>
+            <Text variant='label-small' style={[style.versionText, { color: colors.inverse_content_secondary, }]}>Versión {DeviceInfo.getVersion()}</Text>
             <TwoButtonModal
             visible={showModal}
             onCallbackClose={() => toggleModal()}
