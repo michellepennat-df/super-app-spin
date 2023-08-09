@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Image, ScrollView, View } from 'react-native';
 import { style } from './Detail.Style';
 import useTheme from '../../../hooks/useTheme';
@@ -14,6 +14,11 @@ const MovementDetail = ({ navigation, route }: Props) => {
     const { movement } = route.params
 
     const { colors } = useTheme()
+
+    const startDate = useMemo(() => { 
+        const movemntDate = new Date(movement.date)
+        return new Date(movemntDate.setMonth(movemntDate.getMonth() + 1)).toLocaleDateString() 
+    }, [])
 
     return (
         <ScrollView style={[style.container, { backgroundColor: colors.surface_primary }]} contentContainerStyle={{ paddingTop: 50, paddingBottom: 16 }} >
@@ -44,12 +49,12 @@ const MovementDetail = ({ navigation, route }: Props) => {
                 </View>
                 <View style={style.infoContainer}>
                     <Text variant='label-default' >Fecha:</Text>
-                    <Text variant='label-default-bold' >{movement.date}</Text>
+                    <Text variant='label-default-bold' >{new Date(movement.date).toLocaleDateString()}</Text>
                 </View>
-                <View style={style.infoContainer}>
+                {movement.operation == 'earned' && <View style={style.infoContainer}>
                     <Text variant='label-default' >Úsalos desde el:</Text>
-                    <Text variant='label-default-bold' >{movement.date}</Text>
-                </View>
+                    <Text variant='label-default-bold' >{startDate}</Text>
+                </View>}
             </View>
             <View style={{ paddingVertical: 16, gap: 8, padding: 16 }} >
                 <Text variant='label-default' >Número de transacción</Text>
