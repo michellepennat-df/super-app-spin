@@ -13,8 +13,9 @@ import useTheme from '../hooks/useTheme';
 import {Movement} from '../models/Movements/Movement';
 import {Benefits} from '../screens/benefits/Benefits';
 import {Home} from '../screens/home/Home';
-import Movements from '../screens/movements/MovementsTab';
+import Movements from '../screens/movements/Movements';
 import Account from '../screens/account/Account';
+import MovementDetail from '../screens/movements/detail/Detail';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -53,7 +54,7 @@ const BenefitsStack = () => {
         options={{title: 'Beneficios'}}
       />
       <Stack.Screen name="Movimientos" component={Movements} />
-      <Stack.Screen name="Detalles" component={Home} />
+      <Stack.Screen name="Detalles" component={MovementDetail} />
     </Stack.Navigator>
   );
 };

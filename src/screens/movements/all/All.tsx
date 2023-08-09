@@ -5,36 +5,17 @@ import Text from '../../../components/Text/Text';
 import Spinner from '../../../components/atoms/Spinner/Spinner';
 import useMovements from '../../../hooks/useMovements';
 import { styles } from './All.Style';
+import MovementsList from '../list/List';
 
 const AllMovementsList = () => {
-  const {movements, getMovements, loading, moreData} = useMovements();
+  const { movements, getMovements, loading, moreData } = useMovements('history');
   return (
     <View style={styles.container}>
-      <SectionList
-        renderItem={({item}) => (
-          <ListItem
-            itemName={item.entity}
-            supportText={item.date}
-            infoLabel={`+ ${item.points}`}
-            icon={require('../../../assets/partner_logo.png')}
-            onPress={() => console.log('')}
-          />
-        )}
-        sections={movements}
-        stickySectionHeadersEnabled={false}
-        renderSectionHeader={({section: {title}}) => (
-          <Text variant="small-body-bold" style={{margin: 12}}>
-            {title}
-          </Text>
-        )}
-        onEndReached={() => (moreData ? getMovements() : null)}
-        ListFooterComponent={() => {
-          return (
-            loading && (
-              <Spinner testID="button-activity-indicator" size="large" />
-            )
-          );
-        }}
+      <MovementsList
+        movements={movements}
+        getData={getMovements}
+        loading={loading}
+        moreData={moreData}
       />
     </View>
   );

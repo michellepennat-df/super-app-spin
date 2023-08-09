@@ -17,12 +17,14 @@ const MovementsList = ({ movements, getData, loading, moreData }: MovementsListP
 
     return (
         <SectionList
-            renderItem={({ item }) => <ListItem
-                itemName={item.entity}
-                supportText={item.date}
-                infoLabel={`${item.operation == 'earned' ? '+ ' : '- '}${item.points}`}
-                icon={require('../../../assets/partner_logo.png')}
-                onPress={() => navigation.navigate('Detalles', { movement: item })} />}
+            renderItem={({ item }) =>
+                <ListItem
+                    itemName={item.entity}
+                    supportText={item.date}
+                    infoLabel={`${item.operation == 'earned' ? '+ ' : '- '}${item.points}`}
+                    icon={require('../../../assets/partner_logo.png')}
+                    onPress={() => navigation.navigate('Detalles', { movement: item })}
+                />}
             sections={movements}
             stickySectionHeadersEnabled={false}
             renderSectionHeader={({ section: { title } }) => (
