@@ -14,6 +14,9 @@ import {Movement} from '../models/Movements/Movement';
 import {Benefits} from '../screens/benefits/Benefits';
 import {Home} from '../screens/home/Home';
 import Movements from '../screens/movements/Movements';
+import MovementDetail from '../screens/movements/detail/Detail';
+import { Points } from '../screens/points/Points';
+import { Wallet } from '../screens/wallet/Wallet';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -26,6 +29,7 @@ export type RootStackParamList = {
   BenefitsStack: {init: boolean};
   Movimientos: undefined;
   Detalles: {movement: Movement};
+  Puntos: undefined;
 };
 
 type BenefitsRouteProps = RouteProp<RootNavBarParamList, 'Beneficios'>;
@@ -52,7 +56,8 @@ const BenefitsStack = () => {
         options={{title: 'Beneficios'}}
       />
       <Stack.Screen name="Movimientos" component={Movements} />
-      <Stack.Screen name="Detalles" component={Home} />
+      <Stack.Screen name="Detalles" component={MovementDetail} />
+      <Stack.Screen name="Puntos" component={Points} />
     </Stack.Navigator>
   );
 };
@@ -72,7 +77,7 @@ const MainNavBar = () => {
       )}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Beneficios" component={BenefitsStack} />
-      <Tab.Screen name="Cartera" component={Home} />
+      <Tab.Screen name="Cartera" component={Wallet} />
       <Tab.Screen name="Cuenta" component={Home} />
     </Tab.Navigator>
   );
