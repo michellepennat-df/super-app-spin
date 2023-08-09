@@ -29,4 +29,4 @@ interface Typography {
   fontFamily: FontFamilyType;
 }
 
-export { ThemeContextType, Typography, ThemeType };
+export type { ThemeContextType, Typography, ThemeType };

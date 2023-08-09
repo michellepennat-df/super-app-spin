@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 import { MovementsResponse, MovementsSection } from "../models/Movements/MovementsResponse";
 
 
-const useMovements = (filter: 'history' | 'earned' | 'used') => {
+const useMovements = (filter?: 'history' | 'earned' | 'used') => {
 
     const controller = new AbortController()
 

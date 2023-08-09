@@ -1,8 +1,8 @@
 import React from 'react'
 import useMovements from '../../../hooks/useMovements';
 import { View } from 'react-native';
-import MovementsList from '../movementslist/MovementsList';
-import { style } from './earnedmovements.style';
+import MovementsList from '../list/List';
+import { style } from './Earned.Style';
 
 const EarnedMovements = () => {
     
