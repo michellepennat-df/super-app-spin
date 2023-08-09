@@ -1,5 +1,4 @@
-import axios, { AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
+import axios from "axios";
 
 const useFetch = <T>() => {
 

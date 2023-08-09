@@ -1,43 +1,43 @@
-import axios, { AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
-import useFetch from "./useFetch";
-import { MovementsResponse, MovementsSection } from "../models/movement/MovementResponse";
+import { useEffect, useState } from 'react';
+import {
+    MovementsResponse,
+    MovementsSection,
+} from '../models/movement/MovementResponse';
+import useFetch from './useFetch';
 
+const useMovements = (filter: 'history' | 'earned' | 'used') => {
+  const controller = new AbortController();
 
-const useMovements = (filter?: 'history' | 'earned' | 'used') => {
+  const [movements, setMovements] = useState<MovementsSection[]>([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [moreData, setMoreData] = useState(true);
 
-    const controller = new AbortController()
+  const {fetchData} = useFetch<MovementsResponse>();
 
-    const [movements, setMovements] = useState<MovementsSection[]>([])
-    const [page, setPage] = useState(1)
-    const [loading, setLoading] = useState(false)
-    const [moreData, setMoreData] = useState(true)
+  const getMovements = () => {
+    setLoading(true);
 
-    const { fetchData } = useFetch<MovementsResponse>()
+    setTimeout(() => {
+      fetchData(`${filter}/${page}`)
+        .then(response => {
+          setMovements([...movements, ...response!.data]);
+          setPage(page + 1);
 
-    const getMovements = () => {
-        setLoading(true)
+          if (response!.data.length == 0) setMoreData(false);
+        })
+        .catch(err => setMoreData(false))
+        .finally(() => setLoading(false));
+    }, 2000);
+  };
 
-        setTimeout(() => {
-            fetchData(`${filter}/${page}`).then((response) => {
+  useEffect(() => {
+    getMovements();
 
-                setMovements([...movements, ...response!.data])
-                setPage(page + 1)
+    return controller.abort();
+  }, []);
 
-                if (response!.data.length == 0) setMoreData(false)
-
-            }).catch((err) => setMoreData(false))
-                .finally(() => setLoading(false))
-        }, 2000)
-    }
-
-    useEffect(() => {
-        getMovements()
-
-        return controller.abort()
-    }, [])
-
-    return { movements, loading, moreData, getMovements };
-}
+  return {movements, loading, moreData, getMovements};
+};
 
 export default useMovements;

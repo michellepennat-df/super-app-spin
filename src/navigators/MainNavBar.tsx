@@ -57,7 +57,7 @@ const BenefitsStack = () => {
       />
       <Stack.Screen name="Movimientos" component={Movements} />
       <Stack.Screen name="Detalles" component={MovementDetail} />
-      <Stack.Screen name="Puntos" component={Points} />
+      <Stack.Screen name="Puntos" options={{title: 'Cambia tus puntos'}} component={Points} />
     </Stack.Navigator>
   );
 };
