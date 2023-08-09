@@ -2,12 +2,10 @@ import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import {
-  StackNavigationProp,
   createStackNavigator,
 } from '@react-navigation/stack';
-import React, { useEffect } from 'react';
+import React from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
 import { Movement } from '../models/Movements/Movement';
@@ -26,42 +24,14 @@ export type RootNavBarParamList = {
 };
 
 export type RootStackParamList = {
-  BenefitsStack: { init: boolean };
+  MainNavBar: { init: boolean };
   Movimientos: undefined;
   Detalles: { movement: Movement };
 };
 
-type BenefitsRouteProps = RouteProp<RootNavBarParamList, 'Beneficios'>;
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootNavBarParamList>();
 
-const BenefitsStack = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const route = useRoute<BenefitsRouteProps>();
-
-  useEffect(() => {
-    if (route.params?.init)
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'BenefitsStack' }],
-      });
-  }, [route.params?.init]);
-
-  return (
-    <Stack.Navigator screenOptions={{
-      headerTitleAlign: 'left',
-      header: (props) => <AppHeader {...props} />
-    }}>
-      <Stack.Screen
-        name="BenefitsStack"
-        component={Benefits}
-        options={{ title: 'Beneficios'}}
-      />
-      <Stack.Screen name="Movimientos" component={Movements} />
-      <Stack.Screen name="Detalles" component={MovementDetail} options={{ title: 'Detalle de movimiento'}} />
-    </Stack.Navigator>
-  );
-};
 
 const MainNavBar = () => {
   const { colors } = useTheme();
@@ -84,8 +54,8 @@ const MainNavBar = () => {
         options={{ headerShown: false }} />
       <Tab.Screen
         name="Beneficios"
-        component={BenefitsStack}
-        options={{ headerShown: false }} />
+        component={Benefits}
+        options={{ headerShown: true }} />
       <Tab.Screen
         name="Cartera"
         component={Home}
@@ -99,4 +69,23 @@ const MainNavBar = () => {
   );
 };
 
-export default MainNavBar;
+const MainStack = () => {
+
+  return (
+    <Stack.Navigator screenOptions={{
+      headerTitleAlign: 'left',
+      header: (props) => <AppHeader {...props} />
+    }}>
+      <Stack.Screen
+        name="MainNavBar"
+        component={MainNavBar}
+        options={{ title: 'Beneficios', headerShown: false }}
+      />
+      <Stack.Screen name="Movimientos" component={Movements} />
+      <Stack.Screen name="Detalles" component={MovementDetail} options={{ title: 'Detalle de movimiento' }} />
+    </Stack.Navigator>
+  );
+};
+
+
+export default MainStack;

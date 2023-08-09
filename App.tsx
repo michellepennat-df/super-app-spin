@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
-import MainNavBar from './src/navigators/MainNavBar';
+import MainStack from './src/navigators/MainNavBar';
 import ThemeProvider from './src/theme/ThemeProvider';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     <ThemeProvider>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-          <MainNavBar />
+          <MainStack />
         </NavigationContainer>
       </SafeAreaView>
     </ThemeProvider>
