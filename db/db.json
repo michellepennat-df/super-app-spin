@@ -250,8 +250,7 @@
     },
     {
       "id": 3,
-      "data": [
-      ]
+      "data": []
     }
   ],
   "used": [
@@ -317,6 +316,29 @@
     {
       "id": 3,
       "data": []
+    }
+  ],
+  "partners": [
+    {
+      "id": 1,
+      "name": "Volaris",
+      "type": "Movilidad",
+      "minPoints": "200",
+      "maxPoints": "1000"
+    },
+    {
+      "id": 2,
+      "name": "Smart Fit",
+      "type": "Deportes",
+      "minPoints": "400",
+      "maxPoints": "5000"
+    },
+    {
+      "id": 3,
+      "name": "VIX",
+      "type": "Entretenimiento",
+      "minPoints": "100",
+      "maxPoints": "4000"
     }
   ]
 }
