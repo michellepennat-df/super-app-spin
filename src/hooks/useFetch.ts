@@ -7,7 +7,7 @@ const useFetch = <T>() => {
         timeout: 5000
     })
 
-    const fetchData = async (url: string): Promise<T | null> => {
+    const fetchData = async (url: string): Promise<T> => {
         const response = await instance.get(url)
         console.log(response.data)
         return response.data

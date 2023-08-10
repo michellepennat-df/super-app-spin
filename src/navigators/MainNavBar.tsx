@@ -5,7 +5,7 @@ import {
 import {
   createStackNavigator,
 } from '@react-navigation/stack';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
 import useTheme from '../hooks/useTheme';
 import { Movement } from '../models/movement/Movement';
@@ -17,6 +17,7 @@ import MovementDetail from '../screens/movements/detail/Detail';
 import AppHeader from '../components/AppHeader/AppHeader';
 import { Wallet } from '../screens/wallet/Wallet';
 import { Points } from '../screens/points/Points';
+import { usePointsContext } from '../context/points/Context';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -35,9 +36,14 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootNavBarParamList>();
 
-
 const MainNavBar = () => {
   const { colors } = useTheme();
+
+  const { getPoints } = usePointsContext()
+
+  useEffect(() => {
+    getPoints()
+  }, [])
 
   return (
     <Tab.Navigator

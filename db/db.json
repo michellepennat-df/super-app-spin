@@ -340,5 +340,8 @@
       "minPoints": "100",
       "maxPoints": "4000"
     }
-  ]
+  ],
+  "points": {
+    "data": 10657
+  }
 }

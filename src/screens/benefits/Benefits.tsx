@@ -7,42 +7,45 @@ import PointsTag from '../../components/atoms/Tag/PointsTag';
 import useTheme from '../../hooks/useTheme';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Benefits.Style';
-
-const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
-const data = [
-  {
-    title: 'Consulta tu historial',
-    icon: (
-      <Image source={require('../../assets/images/history.png')} width={124} />
-    ),
-    onPress: () => {
-      navigation.navigate('Movimientos');
-    },
-  },
-  {
-    title: 'Cambia tus puntos',
-    icon: (
-      <Image source={require('../../assets/images/points.png')} width={124} />
-    ),
-    onPress: () => {
-      navigation.navigate('Puntos');
-    },
-  },
-];
+import { usePointsContext } from '../../context/points/Context';
 
 export const Benefits = () => {
-  const {colors} = useTheme();
+
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const { colors } = useTheme();
+  const { points } = usePointsContext()
+
+  const data = [
+    {
+      title: 'Consulta tu historial',
+      icon: (
+        <Image source={require('../../assets/images/history.png')} width={124} />
+      ),
+      onPress: () => {
+        navigation.navigate('Movimientos');
+      },
+    },
+    {
+      title: 'Cambia tus puntos',
+      icon: (
+        <Image source={require('../../assets/images/points.png')} width={124} />
+      ),
+      onPress: () => {
+        navigation.navigate('Puntos');
+      },
+    },
+  ];
+
   return (
     <ScrollView
-      style={[styles.container, {backgroundColor: colors.surface_primary}]}>
+      style={[styles.container, { backgroundColor: colors.surface_primary }]}>
       <View style={styles.row}>
         <View>
           <Text variant="small-body-bold">Tienes</Text>
-          <Text variant="headline-extra-large">10,657</Text>
+          <Text variant="headline-extra-large">{new Intl.NumberFormat('es-MX').format(points)}</Text>
           <PointsTag
-            leftIcon={require('../../assets/points.png')}
-            text="Valen $156.00"
+            leftIcon={require('../../assets/starburst.png')}
+            text={`Valen ${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(points / 10)}`}
           />
         </View>
         <View>
