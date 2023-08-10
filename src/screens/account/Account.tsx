@@ -7,12 +7,13 @@ import PointsTag from '../../components/atoms/Tag/PointsTag';
 import TwoButtonModal from '../../components/atoms/Modal/TwoButtonModal';
 import useModal from '../../hooks/useModal';
 import DeviceInfo from 'react-native-device-info';
-
+import { usePointsContext } from '../../context/movements/Context';
 
 const Account = () => {
 
     const { colors } = useTheme()
-    const {showModal, toggleModal} = useModal()
+    const { showModal, toggleModal } = useModal()
+    const { points } = usePointsContext()
 
     return (
         <View style={[style.container, { backgroundColor: colors.surface_primary }]}>
@@ -22,7 +23,7 @@ const Account = () => {
                         <Text variant='headline-large' >Maria Florencia</Text>
                         <PointsTag
                             leftIcon={require('../../assets/starburst.png')}
-                            text="1,200 puntos"
+                            text={`${new Intl.NumberFormat('es-MX').format(points)} puntos`}
                         />
                     </View>
                     <Image
@@ -32,9 +33,9 @@ const Account = () => {
                 </View>
                 <View style={[style.actionContainer, { borderBottomColor: colors.stroke_secondary }]}>
                     <Text variant='headline-small'>Otras acciones</Text>
-                    <Pressable 
-                    onPress={toggleModal}
-                    style={style.closeSesionButton}>
+                    <Pressable
+                        onPress={toggleModal}
+                        style={style.closeSesionButton}>
                         <View style={{ paddingHorizontal: 8 }}>
                             <Image
                                 style={style.logoutIcon}
@@ -47,19 +48,19 @@ const Account = () => {
             </View>
             <Text variant='label-small' style={[style.versionText, { color: colors.inverse_content_secondary, }]}>Versión {DeviceInfo.getVersion()}</Text>
             <TwoButtonModal
-            visible={showModal}
-            onCallbackClose={() => toggleModal()}
-            title='¿Quieres cerrar tu sesión?'
-            subtitle='Recuerda que puedes volver a entrar a la app cuando quieras'
-            showCloseBtn
-            firstButtonProps={{
-                text:'Sí, cerrar sesión',
-                onPress: () => toggleModal()
-            }}
-            secondButtonProps={{
-                text:'En otro momento',
-                onPress: () => toggleModal()
-            }}
+                visible={showModal}
+                onCallbackClose={() => toggleModal()}
+                title='¿Quieres cerrar tu sesión?'
+                subtitle='Recuerda que puedes volver a entrar a la app cuando quieras'
+                showCloseBtn
+                firstButtonProps={{
+                    text: 'Sí, cerrar sesión',
+                    onPress: () => toggleModal()
+                }}
+                secondButtonProps={{
+                    text: 'En otro momento',
+                    onPress: () => toggleModal()
+                }}
             />
         </View>
     );
