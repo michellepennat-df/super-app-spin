@@ -7,7 +7,7 @@ import PointsTag from '../../components/atoms/Tag/PointsTag';
 import useTheme from '../../hooks/useTheme';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Benefits.Style';
-import { usePointsContext } from '../../context/movements/Context';
+import { usePointsContext } from '../../context/points/Context';
 
 export const Benefits = () => {
 

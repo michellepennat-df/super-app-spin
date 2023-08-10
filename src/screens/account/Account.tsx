@@ -7,7 +7,7 @@ import PointsTag from '../../components/atoms/Tag/PointsTag';
 import TwoButtonModal from '../../components/atoms/Modal/TwoButtonModal';
 import useModal from '../../hooks/useModal';
 import DeviceInfo from 'react-native-device-info';
-import { usePointsContext } from '../../context/movements/Context';
+import { usePointsContext } from '../../context/points/Context';
 
 const Account = () => {
 

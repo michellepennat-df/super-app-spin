@@ -17,7 +17,7 @@ import MovementDetail from '../screens/movements/detail/Detail';
 import AppHeader from '../components/AppHeader/AppHeader';
 import { Wallet } from '../screens/wallet/Wallet';
 import { Points } from '../screens/points/Points';
-import { usePointsContext } from '../context/movements/Context';
+import { usePointsContext } from '../context/points/Context';
 
 export type RootNavBarParamList = {
   Home: undefined;
