@@ -9,7 +9,9 @@ const UsedMovements = () => {
     const { movements, getMovements, loading, moreData } = useMovements('used')
 
     return (
-        <View style={style.container}>
+        <View 
+        testID='used-movements-list'
+        style={style.container}>
             <MovementsList
                 movements={movements}
                 getData={getMovements}

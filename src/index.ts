@@ -6,7 +6,7 @@ export {TabView, SceneMap} from 'react-native-tab-view';
 export {default as TabBar} from './components/TabBar/TabBar';
 export {default as TextInput} from './components/atoms/TextInput';
 export {default as Banner} from './components/molecules/Banner';
-export {default as Otp} from './components/Otp';
+// export {default as Otp} from './components/Otp';
 export {default as StepProgressView} from './components/atoms/ProgressView';
 export {default as Disclaimer} from './components/Disclaimer/Disclaimer';
 export {default as Alert} from './components/atoms/Alert';

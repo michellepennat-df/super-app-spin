@@ -28,7 +28,9 @@ const Movements = () => {
   const SCREEN_WIDTH = Dimensions.get('window').width;
 
   return (
-    <View style={[styles.container, {backgroundColor: colors.surface_primary}]}>
+    <View 
+    testID='movements-container'
+    style={[styles.container, {backgroundColor: colors.surface_primary}]}>
       <TabView
         navigationState={{index, routes}}
         renderScene={renderScene}
@@ -36,6 +38,7 @@ const Movements = () => {
         renderTabBar={props => (
           <TabBar
             {...props}
+            getTestID={(scene) => `${scene.route.title}-tab`}
             indicatorStyle={{width: SCREEN_WIDTH / 3.73}}
             indicatorContainerStyle={{left: 12, right: 12, width: 'auto'}}
           />

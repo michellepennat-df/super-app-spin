@@ -4,5 +4,7 @@ export type Movement = {
     points: number,
     operation: 'used' | 'earned',
     transactionNo: string,
-    id: number
+    id: number,
+    expiryDate?: string,
+    giftCode?: string
 }

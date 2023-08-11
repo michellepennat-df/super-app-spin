@@ -23,10 +23,10 @@ const MovementsList = ({ movements, getData, loading, moreData }: MovementsListP
 
     return (
         <SectionList
+            testID='movements-list'
             renderItem={({ item }) =>
                 <ListItem
                     itemName={item.entity}
-
                     supportText={capitalizedDate(item)}
                     infoLabel={`${item.operation == 'earned' ? '+ ' : '- '}${item.points}`}
                     icon={require('../../../assets/partner_logo.png')}

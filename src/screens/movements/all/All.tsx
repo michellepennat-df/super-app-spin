@@ -9,7 +9,9 @@ const AllMovementsList = () => {
   const { movements, getMovements, loading, moreData } = useMovements('history');
 
   return (
-    <View style={styles.container}>
+    <View 
+    testID='all-movements-list'
+    style={styles.container}>
       <MovementsList
         movements={movements}
         getData={getMovements}

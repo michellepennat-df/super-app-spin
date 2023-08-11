@@ -9,7 +9,9 @@ const EarnedMovements = () => {
     const { movements, getMovements, loading, moreData } = useMovements('earned')
 
     return (
-        <View style={style.container}>
+        <View 
+        testID='earne-movements-list'
+        style={style.container}>
             <MovementsList
                 movements={movements}
                 getData={getMovements}

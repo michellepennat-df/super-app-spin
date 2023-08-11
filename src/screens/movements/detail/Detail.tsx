@@ -7,7 +7,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../navigators/MainNavBar';
 import Card from '../../../components/Card/Card';
 
-type Props = StackScreenProps<RootStackParamList, 'Detalles'>
+export type Props = StackScreenProps<RootStackParamList, 'Detalles'>
 
 const MovementDetail = ({ navigation, route }: Props) => {
 
@@ -21,11 +21,14 @@ const MovementDetail = ({ navigation, route }: Props) => {
     }, [])
 
     return (
-        <ScrollView style={[style.container, { backgroundColor: colors.surface_primary }]} contentContainerStyle={{ paddingTop: 40, paddingBottom: 16 }} >
+        <ScrollView
+        testID='detail-container'
+        style={[style.container, { backgroundColor: colors.surface_primary }]} contentContainerStyle={{ paddingTop: 40, paddingBottom: 16 }} >
             <View style={{ padding: 16 }}>
                 <Card style={{ height: 180, width: '100%' }} contentStyle={{ alignItems: "center" }}>
                     <Card style={style.imageContainer} contentStyle={{ alignItems: "center", justifyContent: "center" }}>
                         <Image
+                            testID='partner-logo'
                             style={style.logo}
                             source={require('../../../assets/partner_logo.png')} />
                     </Card>
@@ -45,11 +48,11 @@ const MovementDetail = ({ navigation, route }: Props) => {
             <View style={[style.infoConainer, { borderBottomColor: colors.stroke_secondary }]}>
                 <View style={style.infoContainer}>
                     <Text variant='label-default' >Monto total:</Text>
-                    <Text variant='label-default-bold' >${(movement.points / 10).toFixed(2)}</Text>
+                    <Text testID='total-amount' variant='label-default-bold' >${(movement.points / 10).toFixed(2)}</Text>
                 </View>
                 <View style={style.infoContainer}>
                     <Text variant='label-default' >Fecha:</Text>
-                    <Text variant='label-default-bold' >{new Date(movement.date).toLocaleDateString()}</Text>
+                    <Text testID='date' variant='label-default-bold' >{new Date(movement.date).toLocaleDateString()}</Text>
                 </View>
                 {movement.operation == 'earned' && <View style={style.infoContainer}>
                     <Text variant='label-default' >Úsalos desde el:</Text>
@@ -58,7 +61,7 @@ const MovementDetail = ({ navigation, route }: Props) => {
             </View>
             <View style={{ paddingVertical: 16, gap: 8, padding: 16 }} >
                 <Text variant='label-default' >Número de transacción</Text>
-                <Text variant='label-default-bold' style={{ color: colors.content_tertiary }} >${movement.transactionNo}</Text>
+                <Text variant='label-default-bold' style={{ color: colors.content_tertiary }} >{movement.transactionNo}</Text>
             </View>
         </ScrollView>
     );

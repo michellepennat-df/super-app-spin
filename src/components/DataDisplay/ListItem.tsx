@@ -8,11 +8,14 @@ import useTheme from '../../hooks/useTheme';
 const ListItem = ({ itemName, supportText, infoLabel, onPress = () => { console.log('') }, icon }: ListItemProps) => {
 
     const { colors } = useTheme()
+    
     return (
         <Pressable
+            testID='list-item-container'
             onPress={onPress}
             style={[style.container, { borderBottomColor: colors.stroke_secondary }]}>
             <Image
+                testID='logo'
                 resizeMode='contain'
                 style={style.icon}
                 source={icon}
@@ -22,7 +25,6 @@ const ListItem = ({ itemName, supportText, infoLabel, onPress = () => { console.
                 <Text variant='small-body'>{supportText}</Text>
             </View>
             <Text variant='label-small-bold'>{infoLabel}</Text>
-
         </Pressable>
     );
 }
