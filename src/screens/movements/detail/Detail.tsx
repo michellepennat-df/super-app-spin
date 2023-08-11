@@ -1,11 +1,11 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import React, { useMemo } from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import {StackScreenProps} from '@react-navigation/stack';
+import React, {useMemo} from 'react';
+import {Image, ScrollView, View} from 'react-native';
 import Card from '../../../components/Card/Card';
 import Text from '../../../components/Text/Text';
 import useTheme from '../../../hooks/useTheme';
-import { RootStackParamList } from '../../../navigators/MainNavBar';
-import { style } from './Detail.Style';
+import {RootStackParamList} from '../../../navigators/MainNavBar';
+import {style} from './Detail.Style';
 
 type Props = StackScreenProps<RootStackParamList, 'Detalles'>;
 
@@ -27,7 +27,7 @@ const MovementDetail = ({navigation, route}: Props) => {
       contentContainerStyle={{paddingTop: 40, paddingBottom: 16}}>
       <View style={{padding: 16}}>
         <Card
-          style={{height: 180, width: '100%'}}
+          style={{height: 180, position: 'relative'}}
           contentStyle={{alignItems: 'center'}}>
           <Card
             style={style.imageContainer}
@@ -38,12 +38,7 @@ const MovementDetail = ({navigation, route}: Props) => {
             />
           </Card>
           <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'space-evenly',
-              flex: 1,
-              width: '100%',
-            }}>
+            style={style.points}>
             <Text variant="headline-medium">{movement.entity}</Text>
             <View
               style={[

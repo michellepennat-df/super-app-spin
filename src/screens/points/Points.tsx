@@ -2,11 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {FlatList, Image, Platform, TouchableOpacity, View} from 'react-native';
 import Text from '../../components/Text/Text';
+import Spinner from '../../components/atoms/Spinner/Spinner';
+import usePartners from '../../hooks/usePartners';
 import useTheme from '../../hooks/useTheme';
 import {RootStackParamList} from '../../navigators/MainNavBar';
 import {styles} from './Points.Style';
-import usePartners from '../../hooks/usePartners';
-import Spinner from '../../components/atoms/Spinner/Spinner';
 
 type ItemProps = {
   name: string;
@@ -53,25 +53,27 @@ export const Points = () => {
   const {partners, loading} = usePartners();
   const {colors} = useTheme();
 
-  if (loading) return <Spinner testID="button-activity-indicator" size="large" />;
-
   return (
-    <View style={[styles.container, {backgroundColor: colors.surface_primary}]}>
+    <View style={styles.container}>
       <Text variant="default-body" style={styles.mb16}>
         Elige la marca aliada en la que quieres usar tus puntos
       </Text>
-      <FlatList
-        data={partners}
-        renderItem={({item}) => (
-          <Item
-            name={item.name}
-            image={item.image}
-            type={item.type}
-            onPress={() => navigation.navigate('ChangePoints')}
-          />
-        )}
-        keyExtractor={item => item.id}
-      />
+      {loading ? (
+        <Spinner testID="button-activity-indicator" size="large" />
+      ) : (
+        <FlatList
+          data={partners}
+          renderItem={({item}) => (
+            <Item
+              name={item.name}
+              image={item.image}
+              type={item.type}
+              onPress={() => navigation.navigate('ChangePoints')}
+            />
+          )}
+          keyExtractor={item => item.id}
+        />
+      )}
     </View>
   );
 };
