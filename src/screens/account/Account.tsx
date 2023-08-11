@@ -16,7 +16,9 @@ const Account = () => {
     const { points } = usePointsContext()
 
     return (
-        <View style={[style.container, { backgroundColor: colors.surface_primary }]}>
+        <View 
+        testID='account-container'
+        style={[style.container, { backgroundColor: colors.surface_primary }]}>
             <View style={style.contentConainter}>
                 <View style={style.infoContainer}>
                     <View style={{ gap: 10 }}>
@@ -48,6 +50,7 @@ const Account = () => {
             </View>
             <Text variant='label-small' style={[style.versionText, { color: colors.inverse_content_secondary, }]}>Versión {DeviceInfo.getVersion()}</Text>
             <TwoButtonModal
+            testID='close-session-modal'
                 visible={showModal}
                 onCallbackClose={() => toggleModal()}
                 title='¿Quieres cerrar tu sesión?'
