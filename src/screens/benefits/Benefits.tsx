@@ -38,6 +38,7 @@ export const Benefits = () => {
 
   return (
     <ScrollView
+    testID='benefits-container'
       style={[styles.container, { backgroundColor: colors.surface_primary }]}>
       <View style={styles.row}>
         <View>
