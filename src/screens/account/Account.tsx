@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Pressable, View } from 'react-native';
-import { style } from './account.style';
+import { style } from './Account.Stylee';
 import useTheme from '../../hooks/useTheme';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';

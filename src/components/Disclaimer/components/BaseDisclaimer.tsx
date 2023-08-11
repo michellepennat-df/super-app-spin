@@ -63,10 +63,10 @@ const styles = (theme: ThemeType) =>
     container: {
       backgroundColor: theme.colors.BRAND_DEFAULT_LIGHT_100,
       display: 'flex',
-      alignItems: 'stretch',
+      alignItems: 'center',
       justifyContent: 'space-evenly',
       flexDirection: 'row',
-      width: '90%',
+      width: '100%',
       alignSelf: 'center',
       borderRadius: 5,
       paddingRight: 20,

@@ -1,52 +1,75 @@
-import {FlatList, Image, TouchableOpacity, View} from 'react-native';
-import Card from '../../components/Card/Card';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {FlatList, Image, Platform, TouchableOpacity, View} from 'react-native';
 import Text from '../../components/Text/Text';
+import useTheme from '../../hooks/useTheme';
+import {RootStackParamList} from '../../navigators/MainNavBar';
 import {styles} from './Points.Style';
-
-const partners = [
-  {
-    id: '1',
-    name: 'Volaris',
-    type: 'Movilidad',
-    minPoints: 200,
-    maxPoints: 1000,
-  },
-  {
-    id: '2',
-    name: 'Smart Fit',
-    type: 'Deportes',
-    minPoints: 400,
-    maxPoints: 5000,
-  },
-  {
-    id: '3',
-    name: 'VIX',
-    type: 'Entretenimiento',
-    minPoints: 100,
-    maxPoints: 4000,
-  },
-];
+import usePartners from '../../hooks/usePartners';
+import Spinner from '../../components/atoms/Spinner/Spinner';
 
 type ItemProps = {
   name: string;
+  image: string;
   type: string;
+  onPress: () => void;
 };
 
-const Item = ({name, type}: ItemProps) => (
-  <TouchableOpacity style={styles.card}>
-
+const Item = ({name, type, image, onPress}: ItemProps) => (
+  <TouchableOpacity
+    onPress={onPress}
+    style={[
+      styles.card,
+      Platform.select({
+        ios: {
+          ...styles.shadowIOS,
+          shadowColor: '#8b949e',
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+        },
+      }),
+      Platform.select({
+        android: {
+          ...styles.shadowAndroid,
+          shadowColor: '#020202',
+        },
+      }),
+    ]}>
+    <View style={styles.cardContainer}>
+      <Image style={styles.cardImage} source={{uri: image}} alt={name} />
+      <View>
+        <Text variant="default-body-bold">{name}</Text>
+        <Text variant="small-body">{type}</Text>
+      </View>
+    </View>
+    <Image source={require('../../assets/rightArrow.png')} />
   </TouchableOpacity>
 );
 
 export const Points = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const {partners, loading} = usePartners();
+  const {colors} = useTheme();
+
+  if (loading) return <Spinner testID="button-activity-indicator" size="large" />;
+
   return (
-    <View style={styles.container}>
-      <Text variant="default-body">
+    <View style={[styles.container, {backgroundColor: colors.surface_primary}]}>
+      <Text variant="default-body" style={styles.mb16}>
         Elige la marca aliada en la que quieres usar tus puntos
       </Text>
       <FlatList
         data={partners}
-        renderItem={({item}) => <Item name={item.name} type={item.type} />}
+        renderItem={({item}) => (
+          <Item
+            name={item.name}
+            image={item.image}
+            type={item.type}
+            onPress={() => navigation.navigate('ChangePoints')}
+          />
+        )}
         keyExtractor={item => item.id}
       />
     </View>

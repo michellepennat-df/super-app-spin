@@ -323,22 +323,19 @@
       "id": 1,
       "name": "Volaris",
       "type": "Movilidad",
-      "minPoints": "200",
-      "maxPoints": "1000"
+      "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
     },
     {
       "id": 2,
       "name": "Smart Fit",
       "type": "Deportes",
-      "minPoints": "400",
-      "maxPoints": "5000"
+      "image": "https://i.postimg.cc/D40m9Prj/smartfit.png"
     },
     {
       "id": 3,
       "name": "VIX",
       "type": "Entretenimiento",
-      "minPoints": "100",
-      "maxPoints": "4000"
+      "image": "https://i.postimg.cc/SjxXYkB6/vix.png"
     }
   ],
   "points": {

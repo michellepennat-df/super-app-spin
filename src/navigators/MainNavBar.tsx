@@ -18,6 +18,7 @@ import AppHeader from '../components/AppHeader/AppHeader';
 import { Wallet } from '../screens/wallet/Wallet';
 import { Points } from '../screens/points/Points';
 import { usePointsContext } from '../context/points/Context';
+import { ChangePoints } from '../screens/points/change/ChangePoints';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -31,6 +32,7 @@ export type RootStackParamList = {
   Movimientos: undefined;
   Detalles: { movement: Movement };
   Puntos: undefined;
+  ChangePoints: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -91,7 +93,8 @@ const MainStack = () => {
       />
       <Stack.Screen name="Movimientos" component={Movements} />
       <Stack.Screen name="Detalles" component={MovementDetail} options={{ title: 'Detalle de movimiento' }} />
-      <Stack.Screen name="Puntos" component={Points} options={{ title: 'Detalle de movimiento' }} />
+      <Stack.Screen name="Puntos" component={Points} options={{ title: 'Cambia tus puntos' }} />
+      <Stack.Screen name="ChangePoints" component={ChangePoints} options={{ title: 'Cambia tus puntos' }} />
     </Stack.Navigator>
   );
 };
