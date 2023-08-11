@@ -1,18 +1,32 @@
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Image, SafeAreaView, ScrollView, StatusBar, View} from 'react-native';
+import {Image, ScrollView, View} from 'react-native';
 import Button from '../../../components/Button/Button';
 import Card from '../../../components/Card/Card';
 import Text from '../../../components/Text/Text';
 import useTheme from '../../../hooks/useTheme';
+import {RootStackParamList} from '../../../navigators/MainNavBar';
 import {style} from './Detail.Style';
 
 const DetailPoints = () => {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const {colors} = useTheme();
 
   return (
     <ScrollView
       style={style.container}
       contentContainerStyle={{paddingTop: 40, paddingBottom: 16}}>
+      <View
+        style={{
+          minHeight: 230,
+          width: '100%',
+          backgroundColor: '#087D6F',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+      />
       <View style={{padding: 16}}>
         <Card
           style={{height: 180, position: 'relative'}}
@@ -88,7 +102,7 @@ const DetailPoints = () => {
         <Button
           variant="inverted-primary"
           text="Guardar para otro momento"
-          onPress={() => {}}
+          onPress={() => navigation.goBack()}
         />
       </View>
     </ScrollView>

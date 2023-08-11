@@ -1,22 +1,22 @@
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {
+  DefaultTheme,
+  NavigationContainer
+} from '@react-navigation/native';
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
+import PointsProvider from './src/context/points/State';
 import MainStack from './src/navigators/MainNavBar';
 import ThemeProvider from './src/theme/ThemeProvider';
-import PointsProvider from './src/context/points/State';
 
 const App = () => {
   return (
     <ThemeProvider>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor={'#ffffff'} barStyle={'dark-content'} />
-        <NavigationContainer theme={theme}>
-          <PointsProvider>
-            <MainStack />
-          </PointsProvider>
-        </NavigationContainer>
-      </SafeAreaView>
+      <NavigationContainer theme={theme}>
+        <PointsProvider>
+          <MainStack />
+        </PointsProvider>
+      </NavigationContainer>
     </ThemeProvider>
   );
 };
@@ -24,7 +24,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent',
   },
 });
 

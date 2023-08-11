@@ -39,7 +39,8 @@ export const Benefits = () => {
   ];
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[styles.container, {backgroundColor: colors.surface_primary}]}>
       <View style={styles.row}>
         <View>
           <Text variant="small-body-bold">Tienes</Text>

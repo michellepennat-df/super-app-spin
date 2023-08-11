@@ -1,31 +1,53 @@
-import { BottomTabHeaderProps } from '@react-navigation/bottom-tabs';
-import React, { useEffect } from 'react'
-import { Image, Pressable, View } from 'react-native';
+import {BottomTabHeaderProps} from '@react-navigation/bottom-tabs';
+import {StackHeaderProps} from '@react-navigation/stack';
+import React from 'react';
+import {Image, Pressable, SafeAreaView, StatusBar, View} from 'react-native';
 import Text from '../Text/Text';
-import useTheme from '../../hooks/useTheme';
-import { StackHeaderProps } from '@react-navigation/stack';
-import { styles } from './AppHeader.style';
+import {styles} from './AppHeader.style';
 
 const AppHeader = (props: BottomTabHeaderProps | StackHeaderProps) => {
-    const { colors } = useTheme()
-
-    return (
-        <View style={[styles.container, { backgroundColor: colors.surface_primary }]}>
-            {
-                ( props.navigation.getState().type !== 'tab') &&
-                <Pressable
-                    onPress={() => props.navigation.goBack()}
-                    style={styles.backButtonContainer}>
-                    <Image
-                        resizeMode='contain'
-                        style={styles.backArrowIcon}
-                        source={require('../../assets/back_arrow.png')}
-                    />
-                </Pressable>
-            }
-            <Text variant='headline-small'>{props.options.title ? props.options.title : props.route.name}</Text>
-        </View>
-    );
-}
+  return (
+    <>
+      <SafeAreaView
+        style={{
+          backgroundColor:
+            props.route.name === 'DetailPoints' ? '#087D6F' : '#ffffff',
+        }}
+      />
+      <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'} />
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor:
+              props.route.name === 'DetailPoints' ? '#087D6F' : '#ffffff',
+          },
+        ]}>
+        {props.navigation.getState().type !== 'tab' && (
+          <Pressable
+            onPress={() => props.navigation.goBack()}
+            style={styles.backButtonContainer}>
+            {props.route.name !== 'DetailPoints' ? (
+              <Image
+                resizeMode="contain"
+                style={styles.backArrowIcon}
+                source={require('../../assets/back_arrow.png')}
+              />
+            ) : (
+              <></>
+            )}
+          </Pressable>
+        )}
+        <Text
+          variant="headline-small"
+          style={{
+            color: props.route.name === 'DetailPoints' ? '#ffffff' : '#05053D',
+          }}>
+          {props.options.title ? props.options.title : props.route.name}
+        </Text>
+      </View>
+    </>
+  );
+};
 
 export default AppHeader;
