@@ -1,14 +1,22 @@
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Image, ScrollView, View} from 'react-native';
+import {FlatList, Image, ScrollView, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../../../components/Button/Button';
 import Card from '../../../components/Card/Card';
 import Text from '../../../components/Text/Text';
+import BottomSheet from '../../../components/atoms/BottomSheet';
 import useTheme from '../../../hooks/useTheme';
 import {RootStackParamList} from '../../../navigators/MainNavBar';
 import {styles} from './Detail.Style';
+
+const instructions = [
+  '1. Copia tu certificado de regalo de Spin Premia',
+  '2. Entra a la app o página web de Volaris',
+  '3. Elige tu próximo destino y vuelos',
+  '4. Antes de terminar tu compra, pega o escribe el certificado de regalo al elegir tu método de pago',
+];
 
 const DetailPoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -65,7 +73,33 @@ const DetailPoints = () => {
           variant="hyperlink"
           styleText={{color: colors.ui_active}}
           text="¿Cómo usar mi certificado de regalo?"
-          onPress={() => {}}
+          onPress={() => {
+            BottomSheet.show({
+              title: '¿Cómo usar un certificado de regalo?',
+              children: (
+                <>
+                  <FlatList
+                    data={instructions}
+                    renderItem={({item}) => (
+                      <View style={styles.textModal}>
+                        <Text variant="default-body">{item}</Text>
+                      </View>
+                    )}
+                  />
+                  <Image
+                    style={styles.imgModal}
+                    source={require('../../../assets/placeholder.png')}
+                    alt="instrucciones"
+                  />
+                </>
+              ),
+              headerBackgroundColor: '#ffffff',
+              bodyBackgroundColor: '#ffffff',
+              contentStyle: {
+                paddingHorizontal: 16,
+              },
+            });
+          }}
         />
         <View style={styles.infoContainer}>
           <Text variant="label-default">Monto total:</Text>

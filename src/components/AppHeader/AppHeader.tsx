@@ -18,7 +18,9 @@ const AppHeader = (props: BottomTabHeaderProps | StackHeaderProps) => {
         backgroundColor={
           props.route.name === 'DetailPoints' ? '#087D6F' : '#ffffff'
         }
-        barStyle={'dark-content'}
+        barStyle={
+          props.route.name === 'DetailPoints' ? 'light-content' : 'dark-content'
+        }
       />
       <View
         style={[

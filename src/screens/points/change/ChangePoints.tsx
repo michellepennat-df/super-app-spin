@@ -1,16 +1,16 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { ScrollView, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {Image, ScrollView, View} from 'react-native';
 import Button from '../../../components/Button/Button';
 import Disclaimer from '../../../components/Disclaimer/Disclaimer';
 import Text from '../../../components/Text/Text';
 import Chip from '../../../components/atoms/Chip';
 import PointsTag from '../../../components/atoms/Tag/PointsTag';
 import TextInput from '../../../components/atoms/TextInput';
-import { usePointsContext } from '../../../context/points/Context';
+import {usePointsContext} from '../../../context/points/Context';
 import useTheme from '../../../hooks/useTheme';
-import { RootStackParamList } from '../../../navigators/MainNavBar';
-import { styles } from './ChangePoints.Style';
+import {RootStackParamList} from '../../../navigators/MainNavBar';
+import {styles} from './ChangePoints.Style';
 
 export const ChangePoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -19,9 +19,12 @@ export const ChangePoints = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <Text variant="headline-large" style={styles.mb12}>
-          {new Intl.NumberFormat('es-MX').format(points)} puntos
-        </Text>
+        <View style={styles.points}>
+          <Text variant="headline-large">
+            {new Intl.NumberFormat('es-MX').format(points)} puntos
+          </Text>
+          <Image source={require('../../../assets/alert-info.png')} alt="alerta" />
+        </View>
         <PointsTag
           leftIcon={require('../../../assets/starburst.png')}
           text={`Valen ${new Intl.NumberFormat('es-MX', {

@@ -38,6 +38,18 @@ export const styles = StyleSheet.create({
     marginVertical: 16,
     textAlign: 'center',
   },
+  textModal: {
+    paddingTop: 8,
+    paddingLeft: 12,
+    paddingRight: 8,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E6E6EC',
+  },
+  imgModal: {
+    marginTop: 16,
+    width: '100%',
+  },
   row: {
     display: 'flex',
     flexDirection: 'row',
