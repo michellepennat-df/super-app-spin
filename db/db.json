@@ -250,8 +250,7 @@
     },
     {
       "id": 3,
-      "data": [
-      ]
+      "data": []
     }
   ],
   "used": [
@@ -319,7 +318,27 @@
       "data": []
     }
   ],
-  "points":{
-    "data":10657
+  "partners": [
+    {
+      "id": 1,
+      "name": "Volaris",
+      "type": "Movilidad",
+      "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
+    },
+    {
+      "id": 2,
+      "name": "Smart Fit",
+      "type": "Deportes",
+      "image": "https://i.postimg.cc/D40m9Prj/smartfit.png"
+    },
+    {
+      "id": 3,
+      "name": "VIX",
+      "type": "Entretenimiento",
+      "image": "https://i.postimg.cc/SjxXYkB6/vix.png"
+    }
+  ],
+  "points": {
+    "data": 10657
   }
 }

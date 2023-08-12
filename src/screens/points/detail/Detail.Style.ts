@@ -1,19 +1,26 @@
 import {StyleSheet} from 'react-native';
 
-export const style = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   entityInfoContainer: {
-    height: 222,
     width: '100%',
+  },
+  banner: {
+    minHeight: 150,
+    width: '100%',
+    backgroundColor: '#087D6F',
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
   imageContainer: {
     height: 72,
     width: 72,
     borderRadius: 100,
     position: 'absolute',
-    top: -43,
+    top: -54,
   },
   points: {
     alignItems: 'center',
@@ -27,12 +34,19 @@ export const style = StyleSheet.create({
     width: 66,
     borderRadius: 100,
   },
-  gainsLabel: {
-    height: 40,
-    width: '85%',
-    borderRadius: 16,
-    justifyContent: 'center',
+  text: {
+    marginVertical: 16,
+    textAlign: 'center',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#F5F5F7',
+    width: '100%',
+    height: 56,
+    paddingHorizontal: 12,
   },
   infoConainer: {
     paddingHorizontal: 16,

@@ -28,7 +28,7 @@ const styles = (theme: ThemeContextType) =>
   StyleSheet.create({
     button: {
       backgroundColor: theme.colors.inverse_content_primary,
-      borderColor: theme.colors.inverse_content_primary,
+      borderColor: theme.colors.ui_active,
       borderRadius: 12,
       borderWidth: 1,
       flexDirection: 'row',
@@ -37,6 +37,7 @@ const styles = (theme: ThemeContextType) =>
       height: '100%',
       paddingRight: 32,
       paddingLeft: 32,
+      marginTop: 12,
     },
     text: {
       color: theme.colors.ui_active,

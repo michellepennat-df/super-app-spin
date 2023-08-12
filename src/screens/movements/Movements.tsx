@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { Dimensions, View, useWindowDimensions } from 'react-native';
 import { SceneMap, TabView } from 'react-native-tab-view';
 import TabBar from '../../components/TabBar/TabBar';
-import useTheme from '../../hooks/useTheme';
+import { styles } from './Movement.Style';
 import AllMovementsList from './all/All';
 import EarnedMovements from './earned/Earned';
-import { styles } from './Movement.Style';
 import UsedMovements from './used/Used';
 
 const Movements = () => {
   const layout = useWindowDimensions();
-  const {colors} = useTheme();
 
   const [index, setIndex] = useState(0);
   const [routes] = useState([
@@ -30,7 +28,7 @@ const Movements = () => {
   return (
     <View 
     testID='movements-container'
-    style={[styles.container, {backgroundColor: colors.surface_primary}]}>
+    style={styles.container}>
       <TabView
         navigationState={{index, routes}}
         renderScene={renderScene}

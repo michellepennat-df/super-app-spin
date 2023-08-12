@@ -12,6 +12,9 @@ export interface ChipProps {
   /* Sets the title (or text) inside of the chip*/
   text: string;
 
+  /* Sets the underline title (or text) outside of the chip*/
+  previewText?: string;
+
   variant?: 'default' | 'outline';
 
   /* Indicate if a chip is selected */

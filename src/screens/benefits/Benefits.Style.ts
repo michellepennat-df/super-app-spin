@@ -14,7 +14,11 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  cards: {
+    gap: 16,
   },
   mb16: {
     marginBottom: 16,
@@ -24,5 +28,5 @@ export const styles = StyleSheet.create({
   },
   item: {
     marginRight: 16,
-  }
+  },
 });

@@ -1,7 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, View, Image } from 'react-native';
+import {TouchableOpacity, StyleSheet, View, Image} from 'react-native';
 import Text from '../../../components/Text/Text';
-import type { ChipProps } from './types';
+import type {ChipProps} from './types';
 
 const MIN_OPACITY = 0.6;
 const MAX_OPACITY = 1;
@@ -10,6 +10,7 @@ const WITHOUT_BORDER_WIDTH = 0;
 
 function BaseChip({
   text,
+  previewText,
   testID,
   onPress,
   disabled,
@@ -29,8 +30,7 @@ function BaseChip({
         ...customStyle.containerChip,
         ...(style as object),
       }}
-      testID={testID}
-    >
+      testID={testID}>
       <View
         testID={`${testID}-content`}
         style={{
@@ -39,8 +39,7 @@ function BaseChip({
           backgroundColor,
           borderWidth: borderColor ? BORDER_WIDTH : WITHOUT_BORDER_WIDTH,
           opacity: selected ? MIN_OPACITY : MAX_OPACITY,
-        }}
-      >
+        }}>
         {leftIcon && (
           <Image
             resizeMode="contain"
@@ -49,13 +48,18 @@ function BaseChip({
           />
         )}
         <Text
-          variant="overline"
+          variant="label-default-bold"
           numberOfLines={1}
-          style={{ ...(textStyle as object) }}
-        >
+          style={{...(textStyle as object)}}>
           {text}
         </Text>
       </View>
+      <Text
+        variant="label-extra-small"
+        numberOfLines={1}
+        style={customStyle.previewText}>
+        {previewText}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -67,6 +71,7 @@ const customStyle = StyleSheet.create({
     minHeight: 35,
     borderRadius: 5,
     alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
     paddingHorizontal: 5,
   },
@@ -75,9 +80,11 @@ const customStyle = StyleSheet.create({
     marginRight: 5,
   },
   containerChip: {
-    height: 35,
     minHeight: 35,
     padding: 2,
+  },
+  previewText: {
+    textAlign: 'center',
   },
 });
 

@@ -4,22 +4,23 @@ import { Image, ScrollView, View } from 'react-native';
 import StackedCardGrid from '../../components/GridView/StackedCardGrid';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
+import { usePointsContext } from '../../context/points/Context';
 import useTheme from '../../hooks/useTheme';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Benefits.Style';
-import { usePointsContext } from '../../context/points/Context';
 
 export const Benefits = () => {
-
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const { colors } = useTheme();
-  const { points } = usePointsContext()
+  const {points} = usePointsContext();
 
   const data = [
     {
       title: 'Consulta tu historial',
       icon: (
-        <Image source={require('../../assets/images/history.png')} width={124} />
+        <Image
+          source={require('../../assets/images/history.png')}
+          width={124}
+        />
       ),
       onPress: () => {
         navigation.navigate('Movimientos');
@@ -39,14 +40,19 @@ export const Benefits = () => {
   return (
     <ScrollView
     testID='benefits-container'
-      style={[styles.container, { backgroundColor: colors.surface_primary }]}>
+      style={styles.container}>
       <View style={styles.row}>
         <View>
           <Text variant="small-body-bold">Tienes</Text>
-          <Text variant="headline-extra-large">{new Intl.NumberFormat('es-MX').format(points)}</Text>
+          <Text variant="headline-extra-large">
+            {new Intl.NumberFormat('es-MX').format(points)}
+          </Text>
           <PointsTag
             leftIcon={require('../../assets/starburst.png')}
-            text={`Valen ${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(points / 10)}`}
+            text={`Valen ${new Intl.NumberFormat('es-MX', {
+              style: 'currency',
+              currency: 'MXN',
+            }).format(points / 10)}`}
           />
         </View>
         <View>
@@ -57,7 +63,12 @@ export const Benefits = () => {
           />
         </View>
       </View>
-      <StackedCardGrid data={data} titlesSize="default" numberOfColumns={2} />
+      <StackedCardGrid
+        data={data}
+        titlesSize="default"
+        numberOfColumns={2}
+        containerStyle={styles.cards}
+      />
       <Text style={[styles.mb16, styles.mt24]} variant="headline-large">
         Acumula productos
       </Text>

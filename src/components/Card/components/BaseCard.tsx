@@ -80,7 +80,6 @@ function BaseCard({
 
 const customStyle = StyleSheet.create({
   card: {
-    margin: 3,
     backgroundColor: 'white',
     borderRadius: 5,
   },
