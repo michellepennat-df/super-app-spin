@@ -7,7 +7,7 @@ import PointsTag from '../../components/atoms/Tag/PointsTag';
 import { usePointsContext } from '../../context/points/Context';
 import useModal from '../../hooks/useModal';
 import useTheme from '../../hooks/useTheme';
-import { style } from './Account.Stylee';
+import { style } from './Account.Style';
 
 const Account = () => {
   const {colors} = useTheme();
