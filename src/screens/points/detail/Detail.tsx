@@ -2,12 +2,13 @@ import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Image, ScrollView, View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../../../components/Button/Button';
 import Card from '../../../components/Card/Card';
 import Text from '../../../components/Text/Text';
 import useTheme from '../../../hooks/useTheme';
 import {RootStackParamList} from '../../../navigators/MainNavBar';
-import {style} from './Detail.Style';
+import {styles} from './Detail.Style';
 
 const DetailPoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -15,44 +16,49 @@ const DetailPoints = () => {
 
   return (
     <ScrollView
-      style={style.container}
+      style={styles.container}
       contentContainerStyle={{paddingTop: 40, paddingBottom: 16}}>
-      <View
-        style={{
-          minHeight: 230,
-          width: '100%',
-          backgroundColor: '#087D6F',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-        }}
-      />
+      <View style={styles.banner} />
       <View style={{padding: 16}}>
         <Card
-          style={{height: 180, position: 'relative'}}
+          style={{
+            position: 'relative',
+            paddingHorizontal: 8,
+            paddingVertical: 16,
+          }}
           contentStyle={{alignItems: 'center'}}>
           <Card
-            style={style.imageContainer}
+            style={styles.imageContainer}
             contentStyle={{alignItems: 'center', justifyContent: 'center'}}>
             <Image
-              style={style.logo}
+              style={styles.logo}
               source={require('../../../assets/partner_logo.png')}
             />
           </Card>
-          <View style={style.points}>
+          <View style={styles.points}>
             <Text variant="headline-medium">Volaris</Text>
-            <View style={[style.gainsLabel]}>
-              <Text variant="default-body">
-                Toca el ícono para copiar el certificado de regalo o escríbelo
-                desde la app o página web de Volaris
-              </Text>
+            <Text variant="default-body" style={styles.text}>
+              Toca el ícono para copiar el certificado de regalo o escríbelo
+              desde la app o página web de Volaris
+            </Text>
+            <View style={styles.row}>
+              <View>
+                <Text variant="label-extra-small">Certificado de regalo</Text>
+                <Text variant="default-body-bold">42738499092812000</Text>
+              </View>
+              <TouchableOpacity>
+                <Image
+                  source={require('../../../assets/copy.png')}
+                  alt="icon-copy"
+                />
+              </TouchableOpacity>
             </View>
           </View>
         </Card>
       </View>
       <View
         style={[
-          style.infoConainer,
+          styles.infoConainer,
           {borderBottomColor: colors.stroke_secondary},
         ]}>
         <Button
@@ -61,19 +67,19 @@ const DetailPoints = () => {
           text="¿Cómo usar mi certificado de regalo?"
           onPress={() => {}}
         />
-        <View style={style.infoContainer}>
+        <View style={styles.infoContainer}>
           <Text variant="label-default">Monto total:</Text>
           <Text variant="label-default-bold">200</Text>
         </View>
-        <View style={style.infoContainer}>
+        <View style={styles.infoContainer}>
           <Text variant="label-default">Valen:</Text>
           <Text variant="label-default-bold">$20.00</Text>
         </View>
-        <View style={style.infoContainer}>
+        <View style={styles.infoContainer}>
           <Text variant="label-default">Fecha:</Text>
           <Text variant="label-default-bold">03 de septiembre del 2023</Text>
         </View>
-        <View style={style.infoContainer}>
+        <View style={styles.infoContainer}>
           <Text variant="label-default">Válido hasta el:</Text>
           <Text variant="label-default-bold">26/11/2023</Text>
         </View>

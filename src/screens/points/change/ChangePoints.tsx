@@ -31,7 +31,7 @@ export const ChangePoints = () => {
         />
         {points >= 200 ||
           (points < 1000 && (
-            <Text variant="small-body-bold" style={[styles.mt32, styles.mb16]}>
+            <Text variant="small-body-bold" style={styles.mt32}>
               Escribe el valor de los puntos que quieres cambiar
             </Text>
           ))}
@@ -54,12 +54,17 @@ export const ChangePoints = () => {
                 previewText="1000 puntos"
               />
             </View>
-            <Text variant="small-body-bold" style={[styles.mt32, styles.mb16]}>
+            <Text variant="small-body-bold" style={styles.mt32}>
               Otro:
             </Text>
           </>
         )}
-        <TextInput label="Monto en pesos" value={''} onChangeText={() => {}} />
+        <TextInput
+          style={styles.mt16}
+          label="Monto en pesos"
+          value={''}
+          onChangeText={() => {}}
+        />
         {points < 10000 && (
           <Text variant="extra-small-body" style={[styles.mt8, styles.mb16]}>
             El valor mínimo que puedes cambiar es $20.00

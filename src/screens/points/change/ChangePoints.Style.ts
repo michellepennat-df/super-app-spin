@@ -11,6 +11,9 @@ export const styles = StyleSheet.create({
   mb12: {
     marginBottom: 12,
   },
+  mt16: {
+    marginTop: 16,
+  },
   mb16: {
     marginBottom: 16,
   },
