@@ -4,7 +4,7 @@ import DeviceInfo from 'react-native-device-info';
 import Text from '../../components/Text/Text';
 import TwoButtonModal from '../../components/atoms/Modal/TwoButtonModal';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
-import { usePointsContext } from '../../context/points/Context';
+import { useAppContext } from '../../context/Context';
 import useModal from '../../hooks/useModal';
 import useTheme from '../../hooks/useTheme';
 import { style } from './Account.Style';
@@ -12,7 +12,7 @@ import { style } from './Account.Style';
 const Account = () => {
   const {colors} = useTheme();
   const {showModal, toggleModal} = useModal();
-  const {points} = usePointsContext();
+  const {points} = useAppContext();
 
   return (
     <View

@@ -1,13 +1,7 @@
-import { ReactNode } from "react"
-import { PointsContext } from "../src/context/points/Context"
-import { State } from "../src/context/points/Types"
+import { ReactNode } from 'react';
+import { Context } from '../src/context/Context';
+import { State } from '../src/context/Types';
 
 export const renderWithPoints = (component: ReactNode, value: State) => {
-    return (
-        <PointsContext.Provider
-            value={value}
-        >
-            {component}
-        </PointsContext.Provider>
-    )
-}
+  return <Context.Provider value={value}>{component}</Context.Provider>;
+};

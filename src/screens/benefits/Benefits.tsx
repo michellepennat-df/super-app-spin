@@ -4,14 +4,14 @@ import { Image, ScrollView, View } from 'react-native';
 import StackedCardGrid from '../../components/GridView/StackedCardGrid';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
-import { usePointsContext } from '../../context/points/Context';
+import { useAppContext } from '../../context/Context';
 import useTheme from '../../hooks/useTheme';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Benefits.Style';
 
 export const Benefits = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const {points} = usePointsContext();
+  const {points} = useAppContext();
 
   const data = [
     {

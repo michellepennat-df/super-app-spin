@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
 import AppHeader from '../components/AppHeader/AppHeader';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
-import { usePointsContext } from '../context/points/Context';
+import { useAppContext } from '../context/Context';
 import useTheme from '../hooks/useTheme';
 import { Movement } from '../models/movement/Movement';
 import Account from '../screens/account/Account';
@@ -40,7 +40,7 @@ const Tab = createBottomTabNavigator<RootNavBarParamList>();
 
 const MainNavBar = () => {
   const {colors} = useTheme();
-  const {getPoints} = usePointsContext();
+  const {getPoints} = useAppContext();
 
   useEffect(() => {
     getPoints();

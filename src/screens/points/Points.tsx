@@ -3,6 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { FlatList, Image, Platform, TouchableOpacity, View } from 'react-native';
 import Text from '../../components/Text/Text';
 import Spinner from '../../components/atoms/Spinner/Spinner';
+import { useAppContext } from '../../context/Context';
 import usePartners from '../../hooks/usePartners';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Points.Style';
@@ -50,6 +51,7 @@ const Item = ({name, type, image, onPress}: ItemProps) => (
 export const Points = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const {partners, loading} = usePartners();
+  const {selectPartner} = useAppContext();
 
   return (
     <View style={styles.container}>
@@ -66,7 +68,10 @@ export const Points = () => {
               name={item.name}
               image={item.image}
               type={item.type}
-              onPress={() => navigation.navigate('ChangePoints')}
+              onPress={() => {
+                navigation.navigate('ChangePoints');
+                selectPartner(item);
+              }}
             />
           )}
           keyExtractor={item => item.id}
