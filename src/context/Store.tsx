@@ -10,7 +10,7 @@ moment.locale('es');
 const AppProvider = ({children}: {children: ReactNode}) => {
   const [state, dispatch] = useReducer(PointsReducer, initialState);
 
-  const {fetchData, postData} = useFetch<any>();
+  const {fetchData, postData, putData} = useFetch<any>();
   const addPoints = (points: number) => {
     dispatch({
       type: ADD_POINTS,
@@ -69,6 +69,12 @@ const AppProvider = ({children}: {children: ReactNode}) => {
     });
   };
 
+  const putPoints = (points: number) => {
+    return putData('points', {
+      "data": state.points - points
+    });
+  };
+
   return (
     <Context.Provider
       value={{
@@ -79,6 +85,7 @@ const AppProvider = ({children}: {children: ReactNode}) => {
         getPoints,
         selectPartner,
         postMovement,
+        putPoints,
       }}>
       {children}
     </Context.Provider>

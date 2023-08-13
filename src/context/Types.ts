@@ -16,4 +16,5 @@ export interface State {
   getPoints: () => void;
   selectPartner: (partner: any) => void;
   postMovement: (points: number) => Promise<any> | null;
+  putPoints: (points: number) => void;
 }

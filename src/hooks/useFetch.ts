@@ -12,12 +12,14 @@ const useFetch = <T>() => {
   };
   const postData = async (url: string, data: any): Promise<T> => {
     const response = await instance.post(url, data);
-    console.log(response);
-    
+    return response.data;
+  };
+  const putData = async (url: string, data: any): Promise<T> => {
+    const response = await instance.post(url, data);
     return response.data;
   };
 
-  return {fetchData, postData};
+  return {fetchData, postData, putData};
 };
 
 export default useFetch;

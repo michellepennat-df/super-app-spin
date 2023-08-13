@@ -1,7 +1,7 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { useMemo, useState } from 'react';
-import { Alert, Image, ScrollView, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {useMemo, useState} from 'react';
+import {Alert, Image, ScrollView, View} from 'react-native';
 import Button from '../../../components/Button/Button';
 import Disclaimer from '../../../components/Disclaimer/Disclaimer';
 import Text from '../../../components/Text/Text';
@@ -9,14 +9,14 @@ import Chip from '../../../components/atoms/Chip';
 import SnackBar from '../../../components/atoms/SnackBar';
 import PointsTag from '../../../components/atoms/Tag/PointsTag';
 import TextInput from '../../../components/atoms/TextInput';
-import { useAppContext } from '../../../context/Context';
+import {useAppContext} from '../../../context/Context';
 import useTheme from '../../../hooks/useTheme';
-import { RootStackParamList } from '../../../navigators/MainNavBar';
-import { styles } from './ChangePoints.Style';
+import {RootStackParamList} from '../../../navigators/MainNavBar';
+import {styles} from './ChangePoints.Style';
 
 export const ChangePoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const {points, postMovement} = useAppContext();
+  const {points, postMovement, putPoints, setPoints} = useAppContext();
   const {colors} = useTheme();
 
   const [pointsToChange, setPointsToChange] = useState<string>();
@@ -192,10 +192,12 @@ export const ChangePoints = () => {
             const response = await postMovement(
               +(pointsToChange || chipSelected || 0) / 10,
             );
+            await putPoints(+(pointsToChange || chipSelected || 0) / 10);
+            setPoints(points - +(pointsToChange || chipSelected || 0));
             SnackBar.show({
-              text: '¡Listo! Cambiaaste tus puntos',
+              text: '¡Listo! Cambiaste tus puntos',
               variant: 'info',
-              withIcon: false                            
+              withIcon: false,
             });
             if (response.data)
               navigation.navigate('DetailPoints', response.data[0]);

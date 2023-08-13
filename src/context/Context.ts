@@ -8,6 +8,7 @@ export const initialState: State = {
   getPoints: () => {},
   selectPartner: (partner: any) => {},
   postMovement: (points: number) => null,
+  putPoints: (points: number) => {},
   selectedPartner: null,
 };
 

@@ -10,6 +10,7 @@ import BottomSheet from '../../../components/atoms/BottomSheet';
 import useTheme from '../../../hooks/useTheme';
 import {RootStackParamList} from '../../../navigators/MainNavBar';
 import {styles} from './Detail.Style';
+import SnackBar from '../../../components/atoms/SnackBar';
 
 const instructions = [
   '1. Copia tu certificado de regalo de Spin Premia',
@@ -110,7 +111,7 @@ const DetailPoints = () => {
         />
         <View style={styles.infoContainer}>
           <Text variant="label-default">Monto total:</Text>
-          <Text variant="label-default-bold">{params.data[0].points*10}</Text>
+          <Text variant="label-default-bold">{params.data[0].points * 10}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Valen:</Text>
@@ -144,12 +145,19 @@ const DetailPoints = () => {
         <Button
           variant="primary"
           text="Usar certificado de regalo"
-          onPress={() => {}}
+          onPress={() => {
+            SnackBar.show({
+              text: '¡Listo! Usaste tu certificado de regalo',
+              variant: 'info',
+              withIcon: false,
+            });
+            navigation.navigate('Puntos');
+          }}
         />
         <Button
           variant="inverted-primary"
           text="Guardar para otro momento"
-          onPress={() => navigation.navigate("Puntos")}
+          onPress={() => navigation.navigate('Puntos')}
         />
       </View>
     </ScrollView>
