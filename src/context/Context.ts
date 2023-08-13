@@ -6,7 +6,8 @@ export const initialState: State = {
   addPoints: () => {},
   setPoints: () => {},
   getPoints: () => {},
-  selectPartner: () => {},
+  selectPartner: (partner: any) => {},
+  postMovement: (points: number) => null,
   selectedPartner: null,
 };
 
@@ -16,9 +17,7 @@ export const useAppContext = () => {
   const context = useContext(Context);
 
   if (!context)
-    throw Error(
-      'This context only can be used by Context Provider children',
-    );
+    throw Error('This context only can be used by Context Provider children');
 
   return context;
 };

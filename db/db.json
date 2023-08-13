@@ -279,19 +279,6 @@
               "id": 4
             }
           ]
-        },
-        {
-          "title": "Ayer",
-          "data": [
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 3
-            }
-          ]
         }
       ]
     },
@@ -314,8 +301,65 @@
       ]
     },
     {
-      "id": 3,
-      "data": []
+      "title": "Hoy",
+      "data": [
+        {
+          "entity": {
+            "id": 1,
+            "name": "Volaris",
+            "type": "Movilidad",
+            "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
+          },
+          "date": "13 de August de 2023",
+          "points": 11.1,
+          "operation": "used",
+          "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a569",
+          "id": 4
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "Hoy",
+      "data": [
+        {
+          "entity": {
+            "id": 2,
+            "name": "Smart Fit",
+            "type": "Deportes",
+            "image": "https://i.postimg.cc/D40m9Prj/smartfit.png"
+          },
+          "date": "13 de August de 2023",
+          "points": 200,
+          "operation": "used",
+          "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a527",
+          "id": 4
+        }
+      ],
+      "id": 4
+    },
+    {
+      "id": 20,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": {
+                "id": 1,
+                "name": "Volaris",
+                "type": "Movilidad",
+                "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
+              },
+              "date": "13 de August de 2023",
+              "points": 33.3,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a520",
+              "id": 20
+            }
+          ]
+        }
+      ]
     }
   ],
   "partners": [

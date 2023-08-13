@@ -1,8 +1,10 @@
-import React, {ReactNode, useReducer} from 'react';
-import {ADD_POINTS, SELECT_PARTNER, SET_POINTS} from '.';
+import moment from 'moment';
+import React, { ReactNode, useReducer } from 'react';
+import { ADD_POINTS, SELECT_PARTNER, SET_POINTS } from '.';
 import useFetch from '../hooks/useFetch';
-import {Context, initialState} from './Context';
+import { Context, initialState } from './Context';
 import PointsReducer from './Reducer';
+moment.locale('es');
 
 type PointsResponse = {data: number};
 
@@ -37,11 +39,25 @@ const AppProvider = ({children}: {children: ReactNode}) => {
     });
   };
 
-  const postMovement = () => {
-    // state.selectedPartner, state.points
-    postData('used').then(result => {
-      setPoints(result.data);
-      selectPartner(result.data);
+  const postMovement = (points: number) => {
+    const id = ~~(Math.random() * 100 + 10);
+    return postData('used', {
+      id: 1,
+      data: [
+        {
+          title: 'Hoy',
+          data: [
+            {
+              entity: state.selectedPartner,
+              date: moment().locale('es').format('DD [de] MMMM [de] YYYY'),
+              points: points,
+              operation: 'used',
+              transactionNo: `5dced89c-2b6e-4a1c-a715-c19b0a5${id}`,
+              id,
+            },
+          ],
+        },
+      ],
     });
   };
 
@@ -54,6 +70,7 @@ const AppProvider = ({children}: {children: ReactNode}) => {
         setPoints,
         getPoints,
         selectPartner,
+        postMovement,
       }}>
       {children}
     </Context.Provider>

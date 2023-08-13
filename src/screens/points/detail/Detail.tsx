@@ -1,6 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, Image, ScrollView, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Button from '../../../components/Button/Button';
@@ -20,7 +20,14 @@ const instructions = [
 
 const DetailPoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const route = useRoute();
+  const params = route.params as any;
+
   const {colors} = useTheme();
+
+  useEffect(() => {
+    console.log(JSON.stringify(params));
+  }, []);
 
   return (
     <ScrollView
@@ -103,15 +110,15 @@ const DetailPoints = () => {
         />
         <View style={styles.infoContainer}>
           <Text variant="label-default">Monto total:</Text>
-          <Text variant="label-default-bold">200</Text>
+          <Text variant="label-default-bold">{params.data[0].points*10}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Valen:</Text>
-          <Text variant="label-default-bold">$20.00</Text>
+          <Text variant="label-default-bold">${params.data[0].points}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Fecha:</Text>
-          <Text variant="label-default-bold">03 de septiembre del 2023</Text>
+          <Text variant="label-default-bold">{params.data[0].date}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Válido hasta el:</Text>
@@ -130,7 +137,7 @@ const DetailPoints = () => {
         <Text
           variant="label-default-bold"
           style={{color: colors.content_tertiary}}>
-          5dced89c-2b6e-4a1c-a715-c19b0a51
+          {params.data[0].transactionNo}
         </Text>
       </View>
       <View style={{padding: 16}}>
@@ -142,7 +149,7 @@ const DetailPoints = () => {
         <Button
           variant="inverted-primary"
           text="Guardar para otro momento"
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate("Movimientos")}
         />
       </View>
     </ScrollView>

@@ -1,21 +1,24 @@
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { Image, ScrollView, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {Alert, Image, ScrollView, View} from 'react-native';
 import Button from '../../../components/Button/Button';
 import Disclaimer from '../../../components/Disclaimer/Disclaimer';
 import Text from '../../../components/Text/Text';
 import Chip from '../../../components/atoms/Chip';
 import PointsTag from '../../../components/atoms/Tag/PointsTag';
 import TextInput from '../../../components/atoms/TextInput';
-import { useAppContext } from '../../../context/Context';
+import {useAppContext} from '../../../context/Context';
 import useTheme from '../../../hooks/useTheme';
-import { RootStackParamList } from '../../../navigators/MainNavBar';
-import { styles } from './ChangePoints.Style';
+import {RootStackParamList} from '../../../navigators/MainNavBar';
+import {styles} from './ChangePoints.Style';
+import {useState} from 'react';
 
 export const ChangePoints = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const {points, selectedPartner} = useAppContext();
+  const {points, selectedPartner, postMovement} = useAppContext();
   const {colors} = useTheme();
+
+  const [pointsToChange, setPointsToChange] = useState<string>();
 
   console.log(selectedPartner);
 
@@ -71,8 +74,8 @@ export const ChangePoints = () => {
         <TextInput
           style={styles.mt16}
           label="Monto en pesos"
-          value={''}
-          onChangeText={() => {}}
+          value={pointsToChange || ''}
+          onChangeText={e => setPointsToChange(e)}
         />
         {points < 10000 && (
           <Text variant="extra-small-body" style={[styles.mt8, styles.mb16]}>
@@ -94,8 +97,22 @@ export const ChangePoints = () => {
       <Button
         variant="primary"
         text="Continuar"
-        disabled={points < 200}
-        onPress={() => navigation.navigate('DetailPoints')}
+        disabled={points < 200 || pointsToChange === ''}
+        onPress={async () => {
+          try {
+            if (!pointsToChange)
+              return Alert.alert('Debe ingresar una cantidad');
+
+            const response = await postMovement(+pointsToChange / 10);
+
+            if (response.data)
+              navigation.navigate('DetailPoints', response.data[0]);
+            else Alert.alert('No se pudo consumir la data');
+          } catch (error) {
+            console.error(error)
+            Alert.alert('No se pudo consumir la data');
+          }
+        }}
       />
     </View>
   );

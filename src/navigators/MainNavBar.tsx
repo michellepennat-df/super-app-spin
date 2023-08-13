@@ -2,22 +2,22 @@ import {
   BottomTabBarProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import React, { useEffect } from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import React, {useEffect} from 'react';
 import AppHeader from '../components/AppHeader/AppHeader';
 import CustomNavBar from '../components/CustomNavBar/CustomNavBar';
-import { useAppContext } from '../context/Context';
+import {useAppContext} from '../context/Context';
 import useTheme from '../hooks/useTheme';
-import { Movement } from '../models/movement/Movement';
+import {Movement} from '../models/movement/Movement';
 import Account from '../screens/account/Account';
-import { Benefits } from '../screens/benefits/Benefits';
-import { Home } from '../screens/home/Home';
+import {Benefits} from '../screens/benefits/Benefits';
+import {Home} from '../screens/home/Home';
 import Movements from '../screens/movements/Movements';
 import MovementDetail from '../screens/movements/detail/Detail';
-import { Points } from '../screens/points/Points';
-import { ChangePoints } from '../screens/points/change/ChangePoints';
+import {Points} from '../screens/points/Points';
+import {ChangePoints} from '../screens/points/change/ChangePoints';
 import DetailPoints from '../screens/points/detail/Detail';
-import { Wallet } from '../screens/wallet/Wallet';
+import {Wallet} from '../screens/wallet/Wallet';
 
 export type RootNavBarParamList = {
   Home: undefined;
@@ -32,7 +32,7 @@ export type RootStackParamList = {
   Detalles: {movement: Movement};
   Puntos: undefined;
   ChangePoints: undefined;
-  DetailPoints: undefined;
+  DetailPoints: {data: any};
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

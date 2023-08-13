@@ -10,8 +10,10 @@ const useFetch = <T>() => {
     const response = await instance.get(url);
     return response.data;
   };
-  const postData = async (url: string): Promise<T> => {
-    const response = await instance.post(url);
+  const postData = async (url: string, data: any): Promise<T> => {
+    const response = await instance.post(url, data);
+    console.log(response);
+    
     return response.data;
   };
 
