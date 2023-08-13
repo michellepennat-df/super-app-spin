@@ -1,11 +1,9 @@
 import moment from 'moment';
-import 'moment/locale/es';
 import React, { ReactNode, useReducer } from 'react';
 import { ADD_POINTS, SELECT_PARTNER, SET_POINTS } from '.';
 import useFetch from '../hooks/useFetch';
 import { Context, initialState } from './Context';
 import PointsReducer from './Reducer';
-moment.locale('es');
 
 const AppProvider = ({children}: {children: ReactNode}) => {
   const [state, dispatch] = useReducer(PointsReducer, initialState);
@@ -57,7 +55,7 @@ const AppProvider = ({children}: {children: ReactNode}) => {
           data: [
             {
               entity: state.selectedPartner?.name,
-              date: moment().locale('es').format('DD [de] MMMM [de] YYYY'),
+              date: moment().locale("en").format('ddd MMMM DD YYYY'),
               points: points,
               operation: 'used',
               transactionNo: `5dced89c-2b6e-4a1c-a715-c19b0a5${id}`,

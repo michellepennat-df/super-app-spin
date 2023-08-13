@@ -7,10 +7,11 @@ import Button from '../../../components/Button/Button';
 import Card from '../../../components/Card/Card';
 import Text from '../../../components/Text/Text';
 import BottomSheet from '../../../components/atoms/BottomSheet';
+import SnackBar from '../../../components/atoms/SnackBar';
 import useTheme from '../../../hooks/useTheme';
 import {RootStackParamList} from '../../../navigators/MainNavBar';
 import {styles} from './Detail.Style';
-import SnackBar from '../../../components/atoms/SnackBar';
+import moment from 'moment';
 
 const instructions = [
   '1. Copia tu certificado de regalo de Spin Premia',
@@ -119,7 +120,9 @@ const DetailPoints = () => {
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Fecha:</Text>
-          <Text variant="label-default-bold">{params.data[0].date}</Text>
+          <Text variant="label-default-bold">
+            {moment(params.data[0].date).format('DD [de] MMMM [de] YYYY')}
+          </Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Válido hasta el:</Text>
