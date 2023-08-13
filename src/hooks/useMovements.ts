@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import {
-    MovementsResponse,
-    MovementsSection,
+  MovementsResponse,
+  MovementsSection,
 } from '../models/movement/MovementResponse';
 import useFetch from './useFetch';
 
@@ -19,12 +19,14 @@ const useMovements = (filter: 'history' | 'earned' | 'used') => {
     setLoading(true);
 
     setTimeout(() => {
-      fetchData(`${filter}/${page}`)
-        .then(response => {
-          setMovements([...movements, ...response!.data]);
+      fetchData(`${filter}?_sort=id&_order=desc&_page=${page}&_limit=1`)
+        .then((response: any) => {
+
+          const result = response[0];
+          setMovements([...movements, ...(result.data as any)]);
           setPage(page + 1);
 
-          if (response!.data.length == 0) setMoreData(false);
+          if (result!.data?.length == 0) setMoreData(false);
         })
         .catch(err => setMoreData(false))
         .finally(() => setLoading(false));

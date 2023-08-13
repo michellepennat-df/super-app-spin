@@ -149,7 +149,7 @@ const DetailPoints = () => {
         <Button
           variant="inverted-primary"
           text="Guardar para otro momento"
-          onPress={() => navigation.navigate("Movimientos")}
+          onPress={() => navigation.navigate("Puntos")}
         />
       </View>
     </ScrollView>

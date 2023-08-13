@@ -5,7 +5,7 @@ import 'react-native-gesture-handler';
 import AppProvider from './src/context/Store';
 import MainStack from './src/navigators/MainNavBar';
 import ThemeProvider from './src/theme/ThemeProvider';
-import {BottomSheet} from './src';
+import {BottomSheet, SnackBar} from './src';
 
 const App = () => {
   return (
@@ -16,6 +16,7 @@ const App = () => {
         </AppProvider>
       </NavigationContainer>
       <BottomSheet.Component />
+      <SnackBar.Component />
     </ThemeProvider>
   );
 };

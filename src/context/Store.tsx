@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment/locale/es';
 import React, { ReactNode, useReducer } from 'react';
 import { ADD_POINTS, SELECT_PARTNER, SET_POINTS } from '.';
 import useFetch from '../hooks/useFetch';
@@ -6,12 +7,10 @@ import { Context, initialState } from './Context';
 import PointsReducer from './Reducer';
 moment.locale('es');
 
-type PointsResponse = {data: number};
-
 const AppProvider = ({children}: {children: ReactNode}) => {
   const [state, dispatch] = useReducer(PointsReducer, initialState);
 
-  const {fetchData, postData} = useFetch<PointsResponse>();
+  const {fetchData, postData} = useFetch<any>();
   const addPoints = (points: number) => {
     dispatch({
       type: ADD_POINTS,
@@ -39,16 +38,25 @@ const AppProvider = ({children}: {children: ReactNode}) => {
     });
   };
 
-  const postMovement = (points: number) => {
+  const postMovement = async (points: number) => {
     const id = ~~(Math.random() * 100 + 10);
+
+    const allUsed = await fetchData('used');
+
+    let lastId =
+      allUsed.reduce(
+        (prev: any, curr: any) => (prev < +curr.id ? curr.id : prev),
+        Number.MIN_SAFE_INTEGER,
+      ) + 1;
+
     return postData('used', {
-      id: 1,
+      id: lastId,
       data: [
         {
           title: 'Hoy',
           data: [
             {
-              entity: state.selectedPartner,
+              entity: state.selectedPartner?.name,
               date: moment().locale('es').format('DD [de] MMMM [de] YYYY'),
               points: points,
               operation: 'used',

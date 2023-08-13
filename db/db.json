@@ -4,133 +4,6 @@
       "id": 1,
       "data": [
         {
-          "title": "Hoy",
-          "data": [
-            {
-              "entity": "Oxxo Gas",
-              "date": "Sun Aug 06 2023",
-              "points": 100,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 1
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 2
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 3
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "expiryDate": "Fri Sep 01 2023",
-              "points": 1000,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "giftCode": "42738499092812000",
-              "id": 4
-            }
-          ]
-        },
-        {
-          "title": "Ayer",
-          "data": [
-            {
-              "entity": "Oxxo Gas",
-              "date": "Sun Aug 06 2023",
-              "points": 100,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 1
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 2
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 3
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "expiryDate": "Fri Sep 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "giftCode": "42738499092812000",
-              "id": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "data": [
-        {
-          "title": "Semana anterior",
-          "data": [
-            {
-              "entity": "Oxxo Gas",
-              "date": "Sun Aug 06 2023",
-              "points": 100,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 1
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 2
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 3
-            },
-            {
-              "entity": "Volaris",
-              "date": "Sun Aug 01 2023",
-              "expiryDate": "Fri Sep 01 2023",
-              "points": 1000,
-              "operation": "earned",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "giftCode": "42738499092812000",
-              "id": 4
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "data": [
-        {
           "title": "Mes anterior",
           "data": [
             {
@@ -170,11 +43,160 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "data": [
+        {
+          "title": "Semana anterior",
+          "data": [
+            {
+              "entity": "Oxxo Gas",
+              "date": "Sun Aug 06 2023",
+              "points": 100,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 1
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 2
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 3
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "expiryDate": "Fri Sep 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "giftCode": "42738499092812000",
+              "id": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Oxxo Gas",
+              "date": "Sun Aug 06 2023",
+              "points": 100,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 1
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 2
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 3
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "expiryDate": "Fri Sep 01 2023",
+              "points": 1000,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "giftCode": "42738499092812000",
+              "id": 4
+            }
+          ]
+        },
+        {
+          "title": "Ayer",
+          "data": [
+            {
+              "entity": "Oxxo Gas",
+              "date": "Sun Aug 06 2023",
+              "points": 100,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 1
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 2
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "points": 1000,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 3
+            },
+            {
+              "entity": "Volaris",
+              "date": "Sun Aug 01 2023",
+              "expiryDate": "Fri Sep 01 2023",
+              "points": 1000,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "giftCode": "42738499092812000",
+              "id": 4
+            }
+          ]
+        }
+      ]
     }
   ],
   "earned": [
     {
       "id": 1,
+      "data": []
+    },
+    {
+      "id": 2,
+      "data": [
+        {
+          "title": "Semana anterior",
+          "data": [
+            {
+              "entity": "Oxxo Gas",
+              "date": "Sun Aug 06 2023",
+              "points": 100,
+              "operation": "earned",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
+              "id": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
       "data": [
         {
           "title": "Hoy",
@@ -229,9 +251,11 @@
           ]
         }
       ]
-    },
+    }
+  ],
+  "used": [
     {
-      "id": 2,
+      "id": 1,
       "data": [
         {
           "title": "Semana anterior",
@@ -240,7 +264,7 @@
               "entity": "Oxxo Gas",
               "date": "Sun Aug 06 2023",
               "points": 100,
-              "operation": "earned",
+              "operation": "used",
               "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
               "id": 1
             }
@@ -249,16 +273,10 @@
       ]
     },
     {
-      "id": 3,
-      "data": []
-    }
-  ],
-  "used": [
-    {
-      "id": 1,
+      "id": 2,
       "data": [
         {
-          "title": "Hoy",
+          "title": "Ayer",
           "data": [
             {
               "entity": "Oxxo Gas",
@@ -276,86 +294,259 @@
               "operation": "used",
               "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
               "giftCode": "42738499092812000",
-              "id": 4
+              "id": 2
             }
           ]
         }
       ]
     },
     {
-      "id": 2,
-      "data": [
-        {
-          "title": "Semana anterior",
-          "data": [
-            {
-              "entity": "Oxxo Gas",
-              "date": "Sun Aug 06 2023",
-              "points": 100,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a51",
-              "id": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Hoy",
-      "data": [
-        {
-          "entity": {
-            "id": 1,
-            "name": "Volaris",
-            "type": "Movilidad",
-            "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
-          },
-          "date": "13 de August de 2023",
-          "points": 11.1,
-          "operation": "used",
-          "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a569",
-          "id": 4
-        }
-      ],
-      "id": 3
-    },
-    {
-      "title": "Hoy",
-      "data": [
-        {
-          "entity": {
-            "id": 2,
-            "name": "Smart Fit",
-            "type": "Deportes",
-            "image": "https://i.postimg.cc/D40m9Prj/smartfit.png"
-          },
-          "date": "13 de August de 2023",
-          "points": 200,
-          "operation": "used",
-          "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a527",
-          "id": 4
-        }
-      ],
-      "id": 4
-    },
-    {
-      "id": 20,
+      "id": 3,
       "data": [
         {
           "title": "Hoy",
           "data": [
             {
-              "entity": {
-                "id": 1,
-                "name": "Volaris",
-                "type": "Movilidad",
-                "image": "https://i.postimg.cc/sxZDZ1xC/partner-logo.png"
-              },
-              "date": "13 de August de 2023",
-              "points": 33.3,
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 500,
               "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a520",
-              "id": 20
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a543",
+              "id": 43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "VIX",
+              "date": "13 de agosto de 2023",
+              "points": 200,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a561",
+              "id": 61
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "VIX",
+              "date": "13 de agosto de 2023",
+              "points": 50,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a5108",
+              "id": 108
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 200,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a5104",
+              "id": 104
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Volaris",
+              "date": "13 de agosto de 2023",
+              "points": 100,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a569",
+              "id": 69
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 100,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a578",
+              "id": 78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 200,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a534",
+              "id": 34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 200,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a5105",
+              "id": 105
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Smart Fit",
+              "date": "13 de agosto de 2023",
+              "points": 50,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a590",
+              "id": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "VIX",
+              "date": "13 de agosto de 2023",
+              "points": 200,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a558",
+              "id": 58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Volaris",
+              "date": "13 de agosto de 2023",
+              "points": 50,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a5104",
+              "id": 104
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Volaris",
+              "date": "13 de agosto de 2023",
+              "points": 50,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a541",
+              "id": 41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Volaris",
+              "date": "13 de agosto de 2023",
+              "points": 9.8,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a510",
+              "id": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "data": [
+        {
+          "title": "Hoy",
+          "data": [
+            {
+              "entity": "Volaris",
+              "date": "13 de agosto de 2023",
+              "points": 1.2,
+              "operation": "used",
+              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a513",
+              "id": 13
             }
           ]
         }
@@ -383,6 +574,6 @@
     }
   ],
   "points": {
-    "data": 10000
+    "data": 12000
   }
 }

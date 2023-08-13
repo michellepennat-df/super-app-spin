@@ -7,16 +7,16 @@ import {
   Platform,
   Pressable,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import useThemedStyles from '../../../hooks/useThemedStyles';
 import useTheme from '../../../hooks/useTheme';
 import Text from '../../Text/Text';
 import type { ActionSnackBar, SnackBarProps } from './types';
-import Icon, { IconName } from '../Icon/Icon';
+import { IconName } from '../Icon/Icon';
 import DeviceInfo from 'react-native-device-info';
 
 const DEFAULT_ICON_NAME = 'icon-check';
-const CLOSE_ICON_NAME = 'icon-close';
 
 const SHADOW_COLOR_DEFAULT_IOS = '#c9d1d9';
 const SHADOW_COLOR_DEFAULT_ANDROID = '#8b949e';
@@ -116,14 +116,7 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
         >
           {withIcon && (
             <View style={style.iconContainer} testID="icon-test-id">
-              <Icon
-                testID={`${iconName}-test-id`}
-                name={iconName}
-                iconTypographyStyle={{
-                  color: iconColor,
-                  fontSize: 16,
-                }}
-              />
+              <Image source={require("../../../assets/check-filled.png")}/>
             </View>
           )}
           <View style={style.textContainer}>
@@ -158,30 +151,6 @@ const SnackbarDisplay = ({ testID }: ComponentProps) => {
               >
                 {action.label}
               </Text>
-            </Button>
-          )}
-          {onCloseCallback && (
-            <Button
-              testID="close-button"
-              style={[
-                style.closeContainer,
-                {
-                  borderLeftColor: `${closeColor}80`,
-                },
-              ]}
-              onPress={() => {
-                resetStates();
-                onCloseCallback();
-              }}
-            >
-              <Icon
-                name={CLOSE_ICON_NAME}
-                iconTypographyStyle={{
-                  color: closeColor,
-                  marginLeft: 14,
-                  fontSize: 16,
-                }}
-              />
             </Button>
           )}
         </View>

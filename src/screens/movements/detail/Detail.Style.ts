@@ -1,12 +1,15 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const style = StyleSheet.create({
   container: {
     flex: 1,
   },
   entityInfoContainer: {
-    height: 222,
     width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    flex: 1,
+    marginTop: 36,
   },
   imageContainer: {
     height: 72,
@@ -31,6 +34,7 @@ export const style = StyleSheet.create({
     height: 40,
     width: '85%',
     borderRadius: 16,
+    marginTop: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -28,7 +28,11 @@ const MovementDetail = ({navigation, route}: Props) => {
       contentContainerStyle={{paddingTop: 40, paddingBottom: 16}}>
       <View style={{padding: 16}}>
         <Card
-          style={{height: 180, width: '100%'}}
+          style={{
+            position: 'relative',
+            paddingHorizontal: 8,
+            paddingVertical: 8,
+          }}
           contentStyle={{alignItems: 'center'}}>
           <Card
             style={style.imageContainer}
@@ -40,12 +44,7 @@ const MovementDetail = ({navigation, route}: Props) => {
             />
           </Card>
           <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'space-evenly',
-              flex: 1,
-              width: '100%',
-            }}>
+            style={style.entityInfoContainer}>
             <Text variant="headline-medium">{movement.entity}</Text>
             <View
               style={[
