@@ -2,10 +2,6 @@
 
 ![Vista de la app](https://github.com/michellepennat-df/super-app-spin/blob/develop/src/assets/demo.jpg)
 
-## Demo
-
-![Demo app](https://github.com/michellepennat-df/super-app-spin/blob/develop/src/assets/demo.mov)
-
 ## Project setup
 
 - Fork this repo.
