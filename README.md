@@ -4,7 +4,7 @@
 
 ## Demo
 
-![Vista de la app]([https://github.com/michellepennat-df/super-app-spin/blob/develop/src/assets/demo.jpg](https://github.com/michellepennat-df/super-app-spin/blob/develop/src/assets/demo.mov))
+![Demo app](https://github.com/michellepennat-df/super-app-spin/blob/develop/src/assets/demo.mov)
 
 ## Project setup
 
