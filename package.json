@@ -11,6 +11,11 @@
     "test": "jest",
     "json-server": "json-server --watch -H 0.0.0.0 ./db/db.json --port 3001"
   },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  },
   "dependencies": {
     "@kichiyaki/react-native-barcode-generator": "^0.6.7",
     "@react-native-masked-view/masked-view": "^0.2.9",
@@ -22,11 +27,12 @@
     "lottie-react-native": "^6.0.1",
     "moment": "^2.29.4",
     "react": "18.2.0",
-    "react-native": "0.72.3",
+    "react-native": "^0.72.3",
     "react-native-date-picker": "^4.2.13",
     "react-native-device-info": "^10.8.0",
     "react-native-gesture-handler": "^2.12.1",
     "react-native-linear-gradient": "^2.8.1",
+    "react-native-link": "^4.1.0",
     "react-native-otp-verify": "^1.1.5",
     "react-native-pager-view": "^6.2.0",
     "react-native-reanimated": "^3.4.2",
@@ -44,7 +50,7 @@
     "@react-native/metro-config": "^0.72.9",
     "@testing-library/jest-native": "^5.4.2",
     "@testing-library/react-native": "^12.2.0",
-    "@tsconfig/react-native": "^3.0.0",
+    "@tsconfig/react-native": "^3.0.2",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.2.1",
