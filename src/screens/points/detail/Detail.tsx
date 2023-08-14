@@ -112,11 +112,16 @@ const DetailPoints = () => {
         />
         <View style={styles.infoContainer}>
           <Text variant="label-default">Monto total:</Text>
-          <Text variant="label-default-bold">{params.data[0].points * 10}</Text>
+          <Text variant="label-default-bold">{params.data[0].points}</Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Valen:</Text>
-          <Text variant="label-default-bold">${params.data[0].points}</Text>
+          <Text variant="label-default-bold">
+            {new Intl.NumberFormat('es-MX', {
+              style: 'currency',
+              currency: 'MXN',
+            }).format(params.data[0].points / 10)}
+          </Text>
         </View>
         <View style={styles.infoContainer}>
           <Text variant="label-default">Fecha:</Text>

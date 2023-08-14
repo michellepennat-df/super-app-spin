@@ -299,42 +299,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": 3,
-      "data": [
-        {
-          "title": "Hoy",
-          "data": [
-            {
-              "entity": "Volaris",
-              "date": "Sun August 13 2023",
-              "points": 50,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a525",
-              "id": 25
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "data": [
-        {
-          "title": "Hoy",
-          "data": [
-            {
-              "entity": "Volaris",
-              "date": "Sun August 13 2023",
-              "points": 50,
-              "operation": "used",
-              "transactionNo": "5dced89c-2b6e-4a1c-a715-c19b0a540",
-              "id": 40
-            }
-          ]
-        }
-      ]
     }
   ],
   "partners": [
@@ -358,6 +322,6 @@
     }
   ],
   "points": {
-    "data": 6450
+    "data": 9500
   }
 }

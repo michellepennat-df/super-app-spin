@@ -26,7 +26,13 @@ export const ChangePoints = () => {
 
   const error = useMemo(() => {
     if (+(pointsToChange || 0) > points / 10)
-      return 'El valor máximo que puedes cambiar es $1,000.00';
+      return `El valor máximo que puedes cambiar es $${new Intl.NumberFormat(
+        'es-MX',
+        {
+          style: 'currency',
+          currency: 'MXN',
+        },
+      ).format(points / 10)}`;
 
     return undefined;
   }, [pointsToChange]);
@@ -58,7 +64,7 @@ export const ChangePoints = () => {
               Escribe el valor de los puntos que quieres cambiar
             </Text>
           ))}
-        {points > 1000 && points < 10000 && (
+        {points <= 10000 && points > 1000 && (
           <>
             <Text variant="small-body-bold" style={[styles.mt16, styles.mb16]}>
               Elige o escribe el valor de los puntos que quieres cambiar
@@ -105,7 +111,7 @@ export const ChangePoints = () => {
                 backgroundColor={colors.surface_informational}
                 selected={chipSelected === '500'}
                 onPress={() => {
-                  setSelectedChip('500');
+                  setSelectedChip('50');
                   setPointsToChange('');
                 }}
               />
@@ -116,7 +122,7 @@ export const ChangePoints = () => {
                 previewText="1000 puntos"
                 selected={chipSelected === '1000'}
                 onPress={() => {
-                  setSelectedChip('1000');
+                  setSelectedChip('100');
                   setPointsToChange('');
                 }}
               />
@@ -129,7 +135,7 @@ export const ChangePoints = () => {
                 previewText="2000 puntos"
                 selected={chipSelected === '2000'}
                 onPress={() => {
-                  setSelectedChip('2000');
+                  setSelectedChip('200');
                   setPointsToChange('');
                 }}
               />
@@ -140,7 +146,7 @@ export const ChangePoints = () => {
                 previewText="5000 puntos"
                 selected={chipSelected === '5000'}
                 onPress={() => {
-                  setSelectedChip('5000');
+                  setSelectedChip('500');
                   setPointsToChange('');
                 }}
               />
@@ -161,6 +167,12 @@ export const ChangePoints = () => {
             if (Number.isNaN(+e)) {
               setPointsToChange('');
               return;
+            }
+            {
+              new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+              }).format(points / 10);
             }
             setSelectedChip(undefined);
             setPointsToChange(e);
@@ -192,10 +204,10 @@ export const ChangePoints = () => {
             if (!pointsToChange && !chipSelected)
               return Alert.alert('Debe ingresar una cantidad');
             const response = await postMovement(
-              +(pointsToChange || chipSelected || 0) / 10,
+              +(pointsToChange || chipSelected || 0) * 10,
             );
-            await putPoints(+(pointsToChange || chipSelected || 0) / 10);
-            setPoints(points - +(pointsToChange || chipSelected || 0));
+            await putPoints(+(pointsToChange || chipSelected || 0) * 10);
+            setPoints(points - +(pointsToChange || chipSelected || 0) * 10);
             SnackBar.show({
               text: '¡Listo! Cambiaste tus puntos',
               variant: 'info',
