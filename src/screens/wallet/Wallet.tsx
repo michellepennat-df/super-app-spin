@@ -10,7 +10,7 @@ export const Wallet = () => {
         source={require('../../assets/diamond.png')}
         alt="icon-diamond"
       />
-      <Text variant="headline-large">Pantalla cartera</Text>
+      <Text variant="headline-small">Pantalla cartera</Text>
     </View>
   );
 };

@@ -41,7 +41,7 @@ export const Benefits = () => {
       <View style={styles.row}>
         <View>
           <Text variant="small-body-bold">Tienes</Text>
-          <Text variant="headline-extra-large">
+          <Text variant="headline-large">
             {new Intl.NumberFormat('es-MX').format(points)}
           </Text>
           <PointsTag
@@ -62,7 +62,7 @@ export const Benefits = () => {
       </View>
       <StackedCardGrid
         data={data}
-        titlesSize="default"
+        titlesSize="small"
         numberOfColumns={2}
         containerStyle={styles.cards}
       />

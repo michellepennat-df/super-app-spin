@@ -10,7 +10,7 @@ export const Home = () => {
         source={require('../../assets/mobile.png')}
         alt="icon-mobile"
       />
-      <Text variant="headline-large">Pantalla home</Text>
+      <Text variant="headline-small">Pantalla home</Text>
     </View>
   );
 };
