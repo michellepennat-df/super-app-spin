@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,13 +15,23 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   cards: {
     gap: 16,
+    marginBottom: 16,
+  },
+  viewSell: {
+    paddingBottom: 24,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderBlockColor: '#E6E6EC',
   },
   mb16: {
     marginBottom: 16,
+  },
+  mb24: {
+    marginBottom: 24,
   },
   mt24: {
     marginTop: 24,

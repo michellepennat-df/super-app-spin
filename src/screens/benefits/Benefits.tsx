@@ -5,7 +5,6 @@ import StackedCardGrid from '../../components/GridView/StackedCardGrid';
 import Text from '../../components/Text/Text';
 import PointsTag from '../../components/atoms/Tag/PointsTag';
 import { useAppContext } from '../../context/Context';
-import useTheme from '../../hooks/useTheme';
 import { RootStackParamList } from '../../navigators/MainNavBar';
 import { styles } from './Benefits.Style';
 
@@ -38,9 +37,7 @@ export const Benefits = () => {
   ];
 
   return (
-    <ScrollView
-    testID='benefits-container'
-      style={styles.container}>
+    <ScrollView testID="benefits-container" style={styles.container}>
       <View style={styles.row}>
         <View>
           <Text variant="small-body-bold">Tienes</Text>
@@ -69,31 +66,37 @@ export const Benefits = () => {
         numberOfColumns={2}
         containerStyle={styles.cards}
       />
-      <Text style={[styles.mb16, styles.mt24]} variant="headline-large">
+      <Text style={[styles.mb16, styles.mt24]} variant="headline-small">
         Acumula productos
       </Text>
       <Text style={styles.mb16} variant="default-body">
         Muy pronto podrás sumar tus compras y ganar productos de regalo
       </Text>
       <Image source={require('../../assets/images/seals.png')} alt="Sellos" />
-      <Text style={styles.mb16} variant="headline-large">
+      <Text style={[styles.mb16, styles.mt24]} variant="headline-small">
         Gana más puntos
       </Text>
       <Text style={styles.mb16} variant="default-body">
         Muy pronto podrás ganar más puntos en el total de tu compra
       </Text>
       <Image
+        style={styles.mb16}
         source={require('../../assets/images/aditionals-points.png')}
         alt="Sellos"
       />
-      <Text style={styles.mb16} variant="headline-large">
-        Suma al comprar
-      </Text>
-      <Text style={styles.mb16} variant="default-body">
-        Muy pronto podrás acumular compras y llevarte productos de regalo
-      </Text>
-      <Image source={require('../../assets/images/rewards.png')} alt="Sellos" />
-      <ScrollView horizontal>
+      <View style={styles.viewSell}>
+        <Text style={[styles.mb16, styles.mt24]} variant="headline-small">
+          Suma al comprar
+        </Text>
+        <Text style={styles.mb16} variant="default-body">
+          Muy pronto podrás acumular compras y llevarte productos de regalo
+        </Text>
+        <Image
+          source={require('../../assets/images/rewards.png')}
+          alt="Sellos"
+        />
+      </View>
+      <ScrollView horizontal style={styles.mt24}>
         <Image
           style={styles.item}
           source={require('../../assets/images/card.jpg')}

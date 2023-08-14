@@ -23,6 +23,11 @@ export const styles = StyleSheet.create({
   chip: {
     width: '48%',
   },
+  viewPoints:{
+    borderBottomWidth: 1,
+    borderBottomColor: "#E6E6EC",
+    paddingBottom: 16,
+  },
   row: {
     display: 'flex',
     flexDirection: 'row',

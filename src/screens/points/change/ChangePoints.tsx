@@ -34,31 +34,33 @@ export const ChangePoints = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={styles.points}>
-          <Text variant="headline-large">
-            {new Intl.NumberFormat('es-MX').format(points)} puntos
-          </Text>
-          <Image
-            source={require('../../../assets/alert-info.png')}
-            alt="alerta"
+        <View style={styles.viewPoints}>
+          <View style={styles.points}>
+            <Text variant="headline-large">
+              {new Intl.NumberFormat('es-MX').format(points)} puntos
+            </Text>
+            <Image
+              source={require('../../../assets/alert-info.png')}
+              alt="alerta"
+            />
+          </View>
+          <PointsTag
+            leftIcon={require('../../../assets/starburst.png')}
+            text={`Valen ${new Intl.NumberFormat('es-MX', {
+              style: 'currency',
+              currency: 'MXN',
+            }).format(points / 10)}`}
           />
         </View>
-        <PointsTag
-          leftIcon={require('../../../assets/starburst.png')}
-          text={`Valen ${new Intl.NumberFormat('es-MX', {
-            style: 'currency',
-            currency: 'MXN',
-          }).format(points / 10)}`}
-        />
         {points >= 200 ||
           (points < 1000 && (
-            <Text variant="small-body-bold" style={styles.mt32}>
+            <Text variant="small-body-bold" style={styles.mt16}>
               Escribe el valor de los puntos que quieres cambiar
             </Text>
           ))}
         {points > 1000 && points < 10000 && (
           <>
-            <Text variant="small-body-bold" style={[styles.mt32, styles.mb16]}>
+            <Text variant="small-body-bold" style={[styles.mt16, styles.mb16]}>
               Elige o escribe el valor de los puntos que quieres cambiar
             </Text>
             <View style={styles.row}>
